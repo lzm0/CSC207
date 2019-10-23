@@ -2,14 +2,12 @@ package com.example.game;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class MainActivity extends AppCompatActivity {
+public class GameActivity extends AppCompatActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +23,6 @@ public class MainActivity extends AppCompatActivity {
     // Force landscape only
     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-    // Display main activity
-    setContentView(R.layout.activity_main);
-  }
-
-  public void startGame(View view) {
-    Intent intent = new Intent(this, GameActivity.class);
-    startActivity(intent);
+    setContentView(new GameView(this));
   }
 }
