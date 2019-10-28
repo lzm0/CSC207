@@ -4,11 +4,11 @@ import android.graphics.Canvas;
 import java.util.ArrayList;
 import java.util.List;
 
-class GameWorld {
+class GameManager {
 
   List<GameObject> gameObjects;
 
-  GameWorld() {
+  GameManager() {
     gameObjects = new ArrayList<>();
   }
 

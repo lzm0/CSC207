@@ -8,7 +8,7 @@ import android.view.SurfaceView;
 
 class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
-  private GameWorld gameWorld;
+  private GameManager gameManager;
   private GameThread thread;
 
   public GameView(Context context) {
@@ -50,7 +50,7 @@ class GameView extends SurfaceView implements SurfaceHolder.Callback {
   public void draw(Canvas canvas) {
     super.draw(canvas);
     if (canvas != null) {
-      // gameWorld.draw(canvas);
+      // gameManager.draw(canvas);
       // TODO
     }
   }
