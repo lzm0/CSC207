@@ -6,11 +6,10 @@ import android.view.SurfaceHolder;
 public class GameThread extends Thread {
 
   private GameView gameView;
-  private SurfaceHolder surfaceHolder;
+  final private SurfaceHolder surfaceHolder;
   private boolean isRunning;
-  public static Canvas canvas;
 
-  public GameThread(SurfaceHolder surfaceHolder, GameView view) {
+  GameThread(SurfaceHolder surfaceHolder, GameView view) {
     this.surfaceHolder = surfaceHolder;
     this.gameView = view;
   }
@@ -18,7 +17,7 @@ public class GameThread extends Thread {
   @Override
   public void run() {
     while (isRunning) {
-      canvas = null;
+      Canvas canvas = null;
 
       try {
         canvas = this.surfaceHolder.lockCanvas();
@@ -39,14 +38,14 @@ public class GameThread extends Thread {
       }
 
       try {
-        this.sleep(16);
+        sleep(33);
       } catch (Exception e) {
         e.printStackTrace();
       }
     }
   }
 
-  public void setRunning(boolean isRunning) {
+  void setRunning(boolean isRunning) {
     this.isRunning = isRunning;
   }
 }
