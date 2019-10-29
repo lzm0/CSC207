@@ -32,17 +32,17 @@ class GameManager {
     SensorManager sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
     Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     sensorManager.registerListener(
-            new SensorEventListener() {
-              public void onSensorChanged(SensorEvent event) {
-                ax = event.values[1];
-                ay = event.values[0];
-              }
+        new SensorEventListener() {
+          public void onSensorChanged(SensorEvent event) {
+            ax = event.values[0];
+            ay = event.values[1];
+          }
 
-              public void onAccuracyChanged(Sensor sensor, int accuracy) {
-              }
-            },
-            sensor,
-            SensorManager.SENSOR_DELAY_GAME);
+          public void onAccuracyChanged(Sensor sensor, int accuracy) {
+          }
+        },
+        sensor,
+        SensorManager.SENSOR_DELAY_GAME);
   }
 
   float getAx() {
@@ -74,14 +74,18 @@ class GameManager {
   }
 
   void createGameObjects() {
+    // Left boundary
+    gameObjects.add(new Wall(0, 0, 0, getHeight()));
+    // Right boundary
+    gameObjects.add(new Wall(getWidth(), 0, 0, getHeight()));
+    // Top boundary
+    gameObjects.add(new Wall(0, 0, getWidth(), 0));
+    // Bottom boundary
+    gameObjects.add(new Wall(0, getHeight(), getWidth(), 0));
 
-    gameObjects.add(new Ball(1000, 500, 30));
-    gameObjects.add(new Wall(400, 0, 0, 750));
-    gameObjects.add(new Wall(1500, 0, 0, 750));
-    gameObjects.add(new Wall(1000, 1080, 0, -750));
-    gameObjects.add(new Wall(20, 0, 0, 1080));
-    gameObjects.add(new Wall(0, 0, 2100, 0));
-    gameObjects.add(new Wall(0, 1080, 2100, 0));
-    gameObjects.add(new Wall(2020, 0, 0, 1080));
+    gameObjects.add(new Ball(500, 300, 30));
+    gameObjects.add(new Wall(0, 500, 750, 0));
+    gameObjects.add(new Wall(0, 1500, 750, 0));
+    gameObjects.add(new Wall(1080, 1000, -750, 0));
   }
 }

@@ -21,7 +21,7 @@ public class GameActivity extends AppCompatActivity {
     getSupportActionBar().hide();
 
     // Force landscape only
-    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
     setContentView(new GameView(this));
   }
