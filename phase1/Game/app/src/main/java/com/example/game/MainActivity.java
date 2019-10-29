@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     Objects.requireNonNull(getSupportActionBar()).hide();
 
     // Force landscape only
-    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
     // Display main activity
     setContentView(R.layout.activity_main);
