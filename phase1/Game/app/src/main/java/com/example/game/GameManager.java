@@ -17,7 +17,9 @@ class GameManager {
    * The number of pixels of the screen width
    */
   private int width;
-  /** The number of pixels of the screen height */
+  /**
+   * The number of pixels of the screen height
+   */
   private int height;
 
   private float ax;
@@ -30,16 +32,17 @@ class GameManager {
     SensorManager sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
     Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     sensorManager.registerListener(
-        new SensorEventListener() {
-          public void onSensorChanged(SensorEvent event) {
-            ax = event.values[1];
-            ay = event.values[0];
-          }
+            new SensorEventListener() {
+              public void onSensorChanged(SensorEvent event) {
+                ax = event.values[1];
+                ay = event.values[0];
+              }
 
-          public void onAccuracyChanged(Sensor sensor, int accuracy) {}
-        },
-        sensor,
-        SensorManager.SENSOR_DELAY_GAME);
+              public void onAccuracyChanged(Sensor sensor, int accuracy) {
+              }
+            },
+            sensor,
+            SensorManager.SENSOR_DELAY_GAME);
   }
 
   float getAx() {
@@ -71,6 +74,14 @@ class GameManager {
   }
 
   void createGameObjects() {
+
     gameObjects.add(new Ball(1000, 500, 30));
+    gameObjects.add(new Wall(400, 0, 0, 750));
+    gameObjects.add(new Wall(1500, 0, 0, 750));
+    gameObjects.add(new Wall(1000, 1080, 0, -750));
+    gameObjects.add(new Wall(20, 0, 0, 1080));
+    gameObjects.add(new Wall(0, 0, 2100, 0));
+    gameObjects.add(new Wall(0, 1080, 2100, 0));
+    gameObjects.add(new Wall(2020, 0, 0, 1080));
   }
 }
