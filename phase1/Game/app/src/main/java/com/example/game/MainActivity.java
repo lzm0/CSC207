@@ -37,4 +37,9 @@ public class MainActivity extends AppCompatActivity {
     Intent intent = new Intent(this, GameActivity.class);
     startActivity(intent);
   }
+
+  public void settings(View view) {
+    Intent intent = new Intent(this, SettingsActivity.class);
+    startActivity(intent);
+  }
 }
