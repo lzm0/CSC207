@@ -3,7 +3,6 @@ package com.example.game;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -34,7 +33,6 @@ class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
   @Override
   public void surfaceCreated(SurfaceHolder holder) {
-    setBackgroundColor(Color.BLACK);
     this.gameManager = new GameManager(width, height);
     gameManager.createGameObjects();
     thread.setRunning(true);
