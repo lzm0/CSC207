@@ -4,12 +4,12 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-class Circle extends GameObject {
+class Ball extends GameObject {
 
   private int r;
   private Paint paint;
 
-  Circle(int x, int y, int radius) {
+  Ball(int x, int y, int radius) {
     super(x, y);
     this.r = radius;
     paint = new Paint();

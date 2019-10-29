@@ -35,7 +35,7 @@ class GameManager {
   }
 
   void createGameObjects() {
-    gameObjects.add(new Circle(1000, 500, 100));
-    gameObjects.add(new Circle(1500, 500, 50));
+    gameObjects.add(new Ball(1000, 500, 100));
+    gameObjects.add(new Ball(1500, 500, 50));
   }
 }
