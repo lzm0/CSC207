@@ -25,7 +25,8 @@ class Ball extends GameObject {
   }
 
   void update(GameManager gameManager) {
-
+    vx += gameManager.getAx();
+    vy += gameManager.getAy();
     x += vx;
     y += vy;
   }
