@@ -4,10 +4,10 @@ import android.graphics.Canvas;
 
 abstract class GameObject {
 
-  int x;
-  int y;
+  float x;
+  float y;
 
-  GameObject(int x, int y) {
+  GameObject(float x, float y) {
     this.x = x;
     this.y = y;
   }

@@ -1,17 +1,21 @@
 package com.example.game;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
+
 class Ball extends GameObject {
 
-  private int r;
+  private float r;
+  private float vx = 0;
+  private float vy = 0;
   private Paint paint;
 
   Ball(int x, int y, int radius) {
     super(x, y);
-    this.r = radius;
+    r = radius;
     paint = new Paint();
     paint.setColor(Color.WHITE);
   }
@@ -21,6 +25,8 @@ class Ball extends GameObject {
   }
 
   void update(GameManager gameManager) {
-    r += 1;
+
+    x += vx;
+    y += vy;
   }
 }
