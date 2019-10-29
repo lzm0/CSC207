@@ -17,14 +17,8 @@ class GameManager {
    * The number of pixels of the screen width
    */
   private int width;
-  /**
-   * The number of pixels of the screen height
-   */
+  /** The number of pixels of the screen height */
   private int height;
-
-  private Context context;
-  private SensorManager sensorManager;
-  private Sensor sensor;
 
   private float ax;
   private float ay;
@@ -32,10 +26,9 @@ class GameManager {
   GameManager(int width, int height, Context context) {
     this.width = width;
     this.height = height;
-    this.context = context;
     this.gameObjects = new ArrayList<>();
-    sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
-    sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+    SensorManager sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+    Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     sensorManager.registerListener(
         new SensorEventListener() {
           public void onSensorChanged(SensorEvent event) {
@@ -43,8 +36,7 @@ class GameManager {
             ay = event.values[0];
           }
 
-          public void onAccuracyChanged(Sensor sensor, int accuracy) {
-          }
+          public void onAccuracyChanged(Sensor sensor, int accuracy) {}
         },
         sensor,
         SensorManager.SENSOR_DELAY_GAME);
@@ -63,7 +55,7 @@ class GameManager {
   }
 
   int getWidth() {
-    return  width;
+    return width;
   }
 
   void update() {
