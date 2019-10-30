@@ -5,4 +5,6 @@
   <string name="login_button">LOGIN</string>
   <string name="username">Username</string>
   <string name="color">Color</string>
+  <string name="elasticity">Elasticity</string>
+  <string name="sensitivity">Sensitivity</string>
 </resources>
