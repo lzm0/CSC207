@@ -24,11 +24,13 @@ class GameManager {
 
   private float ax;
   private float ay;
+  private boolean pass;
 
   GameManager(int width, int height, Context context) {
     this.width = width;
     this.height = height;
     this.gameObjects = new ArrayList<>();
+    this.pass = false;
     SensorManager sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
     Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     sensorManager.registerListener(
@@ -49,6 +51,10 @@ class GameManager {
     return ax;
   }
 
+  boolean isPass() {
+    return pass;
+  }
+
   float getAy() {
     return ay;
   }
@@ -64,7 +70,17 @@ class GameManager {
   void update() {
     for (GameObject obj : gameObjects) {
       obj.update(this);
+      }
+    for (GameObject ojb : gameObjects) {
+      for (GameObject g : gameObjects){
+      if (ojb instanceof Ball && g instanceof Goal
+              && ojb.x <= g.x + 8 && g.x - 8 <= ojb.x && ojb.y <= g.y + 8 && g.y - 8 <= ojb.y){
+        pass = true;
+      }
     }
+    }
+
+
   }
 
   void draw(Canvas canvas) {
@@ -87,5 +103,6 @@ class GameManager {
     gameObjects.add(new Wall(0, 500, 750, 0));
     gameObjects.add(new Wall(0, 1500, 750, 0));
     gameObjects.add(new Wall(330, 1000, 750, 0));
+    gameObjects.add(new Goal(100, 300, 55));
   }
 }
