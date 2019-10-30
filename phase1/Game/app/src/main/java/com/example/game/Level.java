@@ -35,6 +35,7 @@ abstract class Level {
     this.height = height;
     this.gameObjects = new ArrayList<>();
     this.context = context;
+    createGameObjects();
     SensorManager sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
     Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     sensorManager.registerListener(
