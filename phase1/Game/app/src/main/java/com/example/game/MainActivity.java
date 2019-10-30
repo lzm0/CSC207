@@ -4,8 +4,9 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Build.VERSION_CODES;
 import android.text.InputType;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
+import android.widget.Spinner;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -44,7 +45,18 @@ public class MainActivity extends AppCompatActivity {
   }
 
   public void startGame(View view) {
+    SeekBar elasticitySeekBar = findViewById(R.id.elasticity_seekbar);
+    SeekBar sensitivitySeekBar = findViewById(R.id.sensitivity_seekbar);
+    Spinner colorSpinner = findViewById(R.id.color_spinner);
+    float elasticity = (float) elasticitySeekBar.getProgress() / elasticitySeekBar.getMax();
+    float sensitivity = (float) sensitivitySeekBar.getProgress() / sensitivitySeekBar.getMax();
+    String color = colorSpinner.getSelectedItem().toString();
+
     Intent intent = new Intent(this, GameActivity.class);
+    intent.putExtra("Username", username);
+    intent.putExtra("Elasticity", elasticity);
+    intent.putExtra("Sensitivity", sensitivity);
+    intent.putExtra("Color", color);
     startActivity(intent);
   }
 

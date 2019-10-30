@@ -1,5 +1,6 @@
 package com.example.game;
 
+import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.pm.ActivityInfo;
@@ -22,6 +23,12 @@ public class GameActivity extends AppCompatActivity {
 
     // Force landscape only
     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+    Intent intent = getIntent();
+    String username = intent.getStringExtra("Username");
+    float elasticity = intent.getFloatExtra("Elasticity", 0.5f);
+    float sensitivity = intent.getFloatExtra("Sensitivity", 0.5f);
+    String color = intent.getStringExtra("Color");
 
     setContentView(new GameView(this));
   }
