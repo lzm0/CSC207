@@ -34,8 +34,8 @@ class GameManager {
     sensorManager.registerListener(
         new SensorEventListener() {
           public void onSensorChanged(SensorEvent event) {
-            ax = event.values[0];
-            ay = event.values[1];
+            ax = 0.2f * -event.values[0];
+            ay = 0.2f * event.values[1];
           }
 
           public void onAccuracyChanged(Sensor sensor, int accuracy) {
@@ -86,6 +86,6 @@ class GameManager {
     gameObjects.add(new Ball(500, 300, 30));
     gameObjects.add(new Wall(0, 500, 750, 0));
     gameObjects.add(new Wall(0, 1500, 750, 0));
-    gameObjects.add(new Wall(1080, 1000, -750, 0));
+    gameObjects.add(new Wall(330, 1000, 750, 0));
   }
 }

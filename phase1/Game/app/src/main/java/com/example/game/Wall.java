@@ -7,8 +7,8 @@ import android.graphics.Paint;
 class Wall extends GameObject {
 
   private Paint paint;
-  private float y_1;
-  private float x_1;
+  float y_1;
+  float x_1;
 
   Wall(int x, int y, int x1, int y1) {
     super(x, y);
