@@ -14,5 +14,5 @@ abstract class GameObject {
 
   abstract void draw(Canvas canvas);
 
-  abstract void update(GameManager gameManager);
+  abstract void update(Level level);
 }

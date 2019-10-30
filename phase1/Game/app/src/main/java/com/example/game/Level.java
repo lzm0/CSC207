@@ -9,10 +9,11 @@ import android.hardware.SensorManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
-class GameManager {
+abstract class Level {
 
   List<GameObject> gameObjects;
 
@@ -29,7 +30,7 @@ class GameManager {
   private float ay;
   private Context context;
 
-  GameManager(int width, int height, Context context) {
+  Level(int width, int height, Context context) {
     this.width = width;
     this.height = height;
     this.gameObjects = new ArrayList<>();
@@ -50,10 +51,6 @@ class GameManager {
         SensorManager.SENSOR_DELAY_GAME);
   }
 
-  float getAx() {
-    return ax;
-  }
-
   void pass() {
     Handler handler = new Handler(Looper.getMainLooper());
     handler.post(
@@ -64,6 +61,10 @@ class GameManager {
           }
         }
     );
+  }
+
+  float getAx() {
+    return ax;
   }
 
   float getAy() {
@@ -90,25 +91,5 @@ class GameManager {
     }
   }
 
-  void createGameObjects() {
-    // Goal
-    gameObjects.add(new Goal(200, 300, 40));
-
-    // Left boundary
-    gameObjects.add(new Wall(0, 0, 0, getHeight()));
-    // Right boundary
-    gameObjects.add(new Wall(getWidth(), 0, 0, getHeight()));
-    // Top boundary
-    gameObjects.add(new Wall(0, 0, getWidth(), 0));
-    // Bottom boundary
-    gameObjects.add(new Wall(0, getHeight(), getWidth(), 0));
-
-    // Walls
-    gameObjects.add(new Wall(0, 500, 750, 0));
-    gameObjects.add(new Wall(0, 1500, 750, 0));
-    gameObjects.add(new Wall(330, 1000, 750, 0));
-
-    // Ball
-    gameObjects.add(new Ball(500, 300, 30));
-  }
+  abstract void createGameObjects();
 }

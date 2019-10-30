@@ -24,15 +24,15 @@ class Goal extends GameObject {
     canvas.drawCircle(x, y, r, paint);
   }
 
-  void update(GameManager gameManager) {
-    for (int i = 0; i < gameManager.gameObjects.size(); i++) {
-      if (gameManager.gameObjects.get(i) instanceof Ball) {
-        Ball ball = (Ball) gameManager.gameObjects.get(i);
+  void update(Level level) {
+    for (int i = 0; i < level.gameObjects.size(); i++) {
+      if (level.gameObjects.get(i) instanceof Ball) {
+        Ball ball = (Ball) level.gameObjects.get(i);
         // If center of the ball is inside the goal
         if (pow(x - ball.x, 2) + pow(y - ball.y, 2) < pow(r, 2)) {
-          gameManager.gameObjects.remove(i);
+          level.gameObjects.remove(i);
           i--;
-          gameManager.pass();
+          level.pass();
         }
       }
     }

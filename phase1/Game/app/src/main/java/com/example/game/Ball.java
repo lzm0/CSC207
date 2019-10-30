@@ -25,10 +25,10 @@ class Ball extends GameObject {
     canvas.drawCircle(x, y, r, paint);
   }
 
-  void update(GameManager gameManager) {
-    vx += gameManager.getAx();
-    vy += gameManager.getAy();
-    for (GameObject obj : gameManager.gameObjects) {
+    void update(Level level) {
+        vx += level.getAx();
+        vy += level.getAy();
+        for (GameObject obj : level.gameObjects) {
       if (obj instanceof Wall) {
         Wall wall = (Wall) obj;
         if (wall.x_1 > 0) { // If the wall is horizontal

@@ -23,6 +23,6 @@ class Wall extends GameObject {
     canvas.drawLine(x, y, x + x_1, y + y_1, paint);
   }
 
-  void update(GameManager gameManager) {
+  void update(Level level) {
   }
 }
