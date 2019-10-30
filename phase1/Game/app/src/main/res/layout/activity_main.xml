@@ -16,7 +16,7 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.25" />
+    app:layout_constraintVertical_bias="0.2" />
 
   <Button
     android:id="@+id/play_button"
@@ -26,15 +26,17 @@
     android:layout_marginLeft="32dp"
     android:layout_marginEnd="32dp"
     android:layout_marginRight="32dp"
+    android:clickable="false"
     android:onClick="startGame"
     android:text="@string/play_button"
+    android:visibility="visible"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.50" />
+    app:layout_constraintVertical_bias="0.40" />
   <Button
-    android:id="@+id/settings_button"
+    android:id="@+id/login_button"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:layout_marginStart="32dp"
@@ -42,8 +44,8 @@
     android:layout_marginTop="8dp"
     android:layout_marginEnd="32dp"
     android:layout_marginRight="32dp"
-    android:onClick="settings"
-    android:text="@string/setting_button"
+    android:onClick="login"
+    android:text="@string/login_button"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/play_button" />
