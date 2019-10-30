@@ -6,6 +6,9 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Handler;
+import android.os.Looper;
+import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,13 +27,13 @@ class GameManager {
 
   private float ax;
   private float ay;
-  private boolean pass;
+  private Context context;
 
   GameManager(int width, int height, Context context) {
     this.width = width;
     this.height = height;
     this.gameObjects = new ArrayList<>();
-    this.pass = false;
+    this.context = context;
     SensorManager sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
     Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     sensorManager.registerListener(
@@ -51,8 +54,16 @@ class GameManager {
     return ax;
   }
 
-  boolean isPass() {
-    return pass;
+  void pass() {
+    Handler handler = new Handler(Looper.getMainLooper());
+    handler.post(
+        new Runnable() {
+          @Override
+          public void run() {
+            Toast.makeText(context, "Level passed!", Toast.LENGTH_SHORT).show();
+          }
+        }
+    );
   }
 
   float getAy() {
@@ -70,17 +81,7 @@ class GameManager {
   void update() {
     for (GameObject obj : gameObjects) {
       obj.update(this);
-      }
-    for (GameObject ojb : gameObjects) {
-      for (GameObject g : gameObjects){
-      if (ojb instanceof Ball && g instanceof Goal
-              && ojb.x <= g.x + 8 && g.x - 8 <= ojb.x && ojb.y <= g.y + 8 && g.y - 8 <= ojb.y){
-        pass = true;
-      }
     }
-    }
-
-
   }
 
   void draw(Canvas canvas) {
@@ -90,6 +91,9 @@ class GameManager {
   }
 
   void createGameObjects() {
+    // Goal
+    gameObjects.add(new Goal(200, 300, 40));
+
     // Left boundary
     gameObjects.add(new Wall(0, 0, 0, getHeight()));
     // Right boundary
@@ -99,10 +103,12 @@ class GameManager {
     // Bottom boundary
     gameObjects.add(new Wall(0, getHeight(), getWidth(), 0));
 
-    gameObjects.add(new Ball(500, 300, 30));
+    // Walls
     gameObjects.add(new Wall(0, 500, 750, 0));
     gameObjects.add(new Wall(0, 1500, 750, 0));
     gameObjects.add(new Wall(330, 1000, 750, 0));
-    gameObjects.add(new Goal(100, 300, 55));
+
+    // Ball
+    gameObjects.add(new Ball(500, 300, 30));
   }
 }

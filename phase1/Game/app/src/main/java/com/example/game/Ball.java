@@ -28,7 +28,7 @@ class Ball extends GameObject {
   void update(GameManager gameManager) {
     vx += gameManager.getAx();
     vy += gameManager.getAy();
-    for (Object obj : gameManager.gameObjects) {
+    for (GameObject obj : gameManager.gameObjects) {
       if (obj instanceof Wall) {
         Wall wall = (Wall) obj;
         if (wall.x_1 > 0) { // If the wall is horizontal
