@@ -33,7 +33,7 @@ class Ball extends GameObject {
         Wall wall = (Wall) obj;
         if (wall.x_1 > 0) { // If the wall is horizontal
           if (wall.x <= x && x <= wall.x + wall.x_1 && abs(y + vy - wall.y) <= r) {
-            vy = 0;
+            vy = -0.3f * vy;
             if (y > wall.y) {
               y = wall.y + r + 1;
             } else {
@@ -42,7 +42,7 @@ class Ball extends GameObject {
           }
         } else { // If the wall is vertical
           if (wall.y <= y && y <= wall.y + wall.y_1 && abs(x + vx - wall.x) <= r) {
-            vx = 0;
+            vx = -0.3f * vx;
             if (x > wall.x) {
               x = wall.x + r + 1;
             } else {
