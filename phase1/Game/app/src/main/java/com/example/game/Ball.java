@@ -26,27 +26,31 @@ class Ball extends GameObject {
   }
 
   void update(Level level) {
+    // Algorithm for resolving collision
+    float elasticity = 0.3f;
     vx += level.getAx();
     vy += level.getAy();
     for (GameObject obj : level.gameObjects) {
       if (obj instanceof Wall) {
         Wall wall = (Wall) obj;
         if (wall.x_1 > 0) { // If the wall is horizontal
-          if (wall.x <= x && x <= wall.x + wall.x_1 && abs(y + vy - wall.y) <= r) {
-            vy = -0.3f * vy;
-            if (y > wall.y) {
+          if (wall.x <= x && x <= wall.x + wall.x_1) {
+            if (y > wall.y && (y + vy) - wall.y < r) {
               y = wall.y + r + 1;
-            } else {
+              vy = -(elasticity * vy);
+            } else if (y < wall.y && wall.y - (y + vy) < r) {
               y = wall.y - r - 1;
+              vy = -(elasticity * vy);
             }
           }
         } else { // If the wall is vertical
-          if (wall.y <= y && y <= wall.y + wall.y_1 && abs(x + vx - wall.x) <= r) {
-            vx = -0.3f * vx;
-            if (x > wall.x) {
+          if (wall.y <= y && y <= wall.y + wall.y_1) {
+            if (x > wall.x && (x + vx) - wall.x < r) {
               x = wall.x + r + 1;
-            } else {
+              vx = -(elasticity * vx);
+            } else if (x < wall.x && wall.x - (x + vx) < r) {
               x = wall.x - r - 1;
+              vx = -(elasticity * vx);
             }
           }
         }

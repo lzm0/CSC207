@@ -22,15 +22,15 @@ class Level2 extends Level {
     gameObjects.add(new Wall(0, getHeight(), getWidth(), 0));
 
     // Walls
-    gameObjects.add(new Wall(getWidth()/5, 0, 0, 6*getHeight()/7));
-    gameObjects.add(new Wall(getWidth()/5, 6*getHeight()/7, 3*getWidth()/5, 0));
-    gameObjects.add(new Wall(4*getWidth()/5, getHeight()/7, 0, 5*getHeight()/7));
-    gameObjects.add(new Wall(2*getWidth()/5, getHeight()/7, 2*getWidth()/5, 0));
-    gameObjects.add(new Wall(2*getWidth()/5, getHeight()/7, 0, 4*getHeight()/7));
-    gameObjects.add(new Wall(2*getWidth()/5, 5*getHeight()/7, getWidth()/5, 0));
-    gameObjects.add(new Wall(3*getWidth()/5, 2*getHeight()/7, 0, 3*getHeight()/7));
+    gameObjects.add(new Wall(getWidth() / 5, 0, 0, 6 * getHeight() / 7));
+    gameObjects.add(new Wall(getWidth() / 5, 6 * getHeight() / 7, 3 * getWidth() / 5, 0));
+    gameObjects.add(new Wall(4 * getWidth() / 5, getHeight() / 7, 0, 5 * getHeight() / 7));
+    gameObjects.add(new Wall(2 * getWidth() / 5, getHeight() / 7, 2 * getWidth() / 5, 0));
+    gameObjects.add(new Wall(2 * getWidth() / 5, getHeight() / 7, 0, 4 * getHeight() / 7));
+    gameObjects.add(new Wall(2 * getWidth() / 5, 5 * getHeight() / 7, getWidth() / 5, 0));
+    gameObjects.add(new Wall(3 * getWidth() / 5, 2 * getHeight() / 7, 0, 3 * getHeight() / 7));
 
-    // Blackhole
+    // Blackholes
     gameObjects.add(new Blackhole(100, 1900, 40));
     gameObjects.add(new Blackhole(950, 1900, 40));
     gameObjects.add(new Blackhole(950, 150, 40));
