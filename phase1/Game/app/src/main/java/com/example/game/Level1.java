@@ -4,8 +4,8 @@ import android.content.Context;
 
 class Level1 extends Level {
 
-  Level1(int width, int height, Context context) {
-    super(width, height, context);
+  Level1(int width, int height, LevelManager levelManager) {
+    super(width, height, levelManager);
   }
 
   void createGameObjects() {

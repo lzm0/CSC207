@@ -28,16 +28,17 @@ abstract class Level {
 
   private float ax;
   private float ay;
-  private Context context;
+  private LevelManager levelManager;
   private int deathCount;
+  private long startTime;
 
-  Level(int width, int height, Context context) {
+  Level(int width, int height, LevelManager levelManager) {
     this.width = width;
     this.height = height;
     this.gameObjects = new ArrayList<>();
-    this.context = context;
-    createGameObjects();
-    SensorManager sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+    this.levelManager = levelManager;
+    SensorManager sensorManager =
+        (SensorManager) levelManager.getContext().getSystemService(Context.SENSOR_SERVICE);
     Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     sensorManager.registerListener(
         new SensorEventListener() {
@@ -53,17 +54,36 @@ abstract class Level {
         SensorManager.SENSOR_DELAY_GAME);
   }
 
+  void start() {
+    createGameObjects();
+    startTime = System.currentTimeMillis() / 1000;
+  }
+
   void pass() {
+    final long time = System.currentTimeMillis() / 1000 - startTime;
+
+    // Show game statistics
     Handler handler = new Handler(Looper.getMainLooper());
     handler.post(
         new Runnable() {
           @Override
           public void run() {
-            Toast.makeText(context, "Level passed!\nDeath count:" + deathCount,
+            Toast.makeText(levelManager.getContext(),
+                "Level passed!\nDeath count: " + deathCount +
+                    "\nTime taken: " + time + "s",
                 Toast.LENGTH_SHORT).show();
           }
         }
     );
+
+    // Wait a second
+    try {
+      Thread.sleep(1000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+
+    levelManager.finishLevel();
   }
 
   float getAx() {
