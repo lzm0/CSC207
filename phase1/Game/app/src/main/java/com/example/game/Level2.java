@@ -10,7 +10,7 @@ class Level2 extends Level {
 
   void createGameObjects() {
     // Goal
-    gameObjects.add(new Goal(550, 1350, 40));
+    gameObjects.add(new Goal(550, 5 * getHeight() / 7-80, 40));
 
     // Left boundary
     gameObjects.add(new Wall(0, 0, 0, getHeight()));
@@ -31,12 +31,12 @@ class Level2 extends Level {
     gameObjects.add(new Wall(3 * getWidth() / 5, 2 * getHeight() / 7, 0, 3 * getHeight() / 7));
 
     // Blackholes
-    gameObjects.add(new Blackhole(100, 1900, 40));
-    gameObjects.add(new Blackhole(950, 1900, 40));
+    gameObjects.add(new Blackhole(100, getHeight()-100, 40));
+    gameObjects.add(new Blackhole(950, getHeight()-100, 40));
     gameObjects.add(new Blackhole(950, 150, 40));
     gameObjects.add(new Blackhole(350, 150, 40));
-    gameObjects.add(new Blackhole(350, 1600, 40));
-    gameObjects.add(new Blackhole(750, 1600, 40));
+    gameObjects.add(new Blackhole(350, 6 * getHeight() / 7-100, 40));
+    gameObjects.add(new Blackhole(750, 6 * getHeight() / 7-100, 40));
     gameObjects.add(new Blackhole(750, 450, 40));
     gameObjects.add(new Blackhole(550, 450, 40));
 
