@@ -14,12 +14,9 @@ public class UserManager {
         this.username = username;
     }
 
-    public void updateInfo(int level) {
-        this.level = level;
-    }
 
-
-    public void saveUserInfo(Context context) {
+    public void setUserInfo(Context context, int number) {
+        this.level = number;
         SharedPreferences userInfo = context.getSharedPreferences(File_Name, Context.MODE_PRIVATE);
         SharedPreferences.OnSharedPreferenceChangeListener changeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
 
@@ -35,8 +32,7 @@ public class UserManager {
 
     public int getUserInfo(Context context) {
         SharedPreferences userInfo = context.getSharedPreferences(File_Name, Context.MODE_PRIVATE);
-        int level = userInfo.getInt(username + "Level", 1);
-        return level;
+        return userInfo.getInt(username + "Level", 1);
     }
 
     public void removeUserInfo(Context context, String key) {

@@ -28,8 +28,7 @@ class LevelManager {
     if (currentLevel < levels.size()) {
       currentLevel++;
       levels.get(currentLevel - 1).start();
-      user.updateInfo(currentLevel);
-      user.saveUserInfo(context);
+        user.setUserInfo(context, currentLevel);
     }
   }
 
