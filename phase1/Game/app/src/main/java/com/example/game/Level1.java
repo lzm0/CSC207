@@ -21,7 +21,7 @@ class Level1 extends Level {
 
     void createGameObjects() {
         // Goal
-        gameObjects.add(new Goal(200, 300, 40));
+        gameObjects.add(new Goal(100, 1750, 40));
 
         // Left boundary
         gameObjects.add(new Wall(0, 0, 0, getHeight()));
@@ -39,5 +39,16 @@ class Level1 extends Level {
 
         // Ball
         gameObjects.add(new Ball(500, 300, 30));
+
+        // Blackhole
+        gameObjects.add(new Blackhole(830, 500, 40));
+        gameObjects.add(new Blackhole(250, 1000, 40));
+        gameObjects.add(new Blackhole(830, 1500, 40));
+        gameObjects.add(new Blackhole(1000, 1900, 40));
+        gameObjects.add(new Blackhole(1300, 200, 40));
+        gameObjects.add(new Blackhole(100, 80, 40));
+        gameObjects.add(new Blackhole(80, 600, 40));
+        gameObjects.add(new Blackhole(80, 1400, 40));
+        gameObjects.add(new Blackhole(100, 1950, 40));
     }
 }

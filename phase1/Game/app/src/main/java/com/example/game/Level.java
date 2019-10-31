@@ -29,6 +29,7 @@ abstract class Level {
   private float ax;
   private float ay;
   private Context context;
+  private int deathCount;
 
   Level(int width, int height, Context context) {
     this.width = width;
@@ -93,4 +94,10 @@ abstract class Level {
   }
 
   abstract void createGameObjects();
+
+  void restart(){
+    this.gameObjects.clear();
+    this.createGameObjects();
+    this.deathCount ++;
+  }
 }
