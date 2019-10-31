@@ -30,6 +30,11 @@ public class GameActivity extends AppCompatActivity {
     float sensitivity = intent.getFloatExtra("Sensitivity", 0.5f);
     String color = intent.getStringExtra("Color");
 
+    GameSettings gameSettings = new GameSettings();
+    gameSettings.setElasticity(elasticity);
+    gameSettings.setSensitivity(sensitivity);
+    gameSettings.setColor(color);
+
     setContentView(new GameView(this));
   }
 }

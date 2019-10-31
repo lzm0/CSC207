@@ -255,7 +255,7 @@ Thumbs.db
 .classpath
 .project
 .cproject
-.settings/
+.gameSettings/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
