@@ -59,7 +59,8 @@ abstract class Level {
         new Runnable() {
           @Override
           public void run() {
-            Toast.makeText(context, "Level passed!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Level passed!\nDeath count:" + deathCount,
+                Toast.LENGTH_SHORT).show();
           }
         }
     );
@@ -81,6 +82,12 @@ abstract class Level {
     return width;
   }
 
+  void restart() {
+    this.gameObjects.clear();
+    this.createGameObjects();
+    this.deathCount++;
+  }
+
   void update() {
     for (GameObject obj : gameObjects) {
       obj.update(this);
@@ -94,10 +101,4 @@ abstract class Level {
   }
 
   abstract void createGameObjects();
-
-  void restart(){
-    this.gameObjects.clear();
-    this.createGameObjects();
-    this.deathCount ++;
-  }
 }
