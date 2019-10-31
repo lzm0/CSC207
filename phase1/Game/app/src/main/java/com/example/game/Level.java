@@ -75,7 +75,7 @@ abstract class Level {
           }
         }
     );
-    levelManager.finishLevel();
+    levelManager.finishLevel(levelManager.getContext());
   }
 
   float getAx() {
