@@ -1,17 +1,6 @@
 package com.example.game;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-import android.os.Handler;
-import android.os.Looper;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 class Level1 extends Level {
 

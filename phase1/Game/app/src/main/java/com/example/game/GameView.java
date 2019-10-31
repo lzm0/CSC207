@@ -35,7 +35,7 @@ class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
   @Override
   public void surfaceCreated(SurfaceHolder holder) {
-    this.level = new Level1(width, height, context);
+    this.level = new Level2(width, height, context);
     thread.setRunning(true);
     thread.start();
   }
