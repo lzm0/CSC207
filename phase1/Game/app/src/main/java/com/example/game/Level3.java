@@ -1,8 +1,8 @@
 package com.example.game;
 
-import android.content.Context;
+//import android.content.Context;
 
-public class Level3 extends Level {
+class Level3 extends Level {
 
   Level3(int width, int height, LevelManager levelManager) {
     super(width, height, levelManager);
