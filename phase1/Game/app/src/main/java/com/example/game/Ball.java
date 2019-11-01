@@ -19,10 +19,6 @@ class Ball extends GameObject {
     paint.setColor(Color.WHITE);
   }
 
-  float getR() {
-    return r;
-  }
-
   void draw(Canvas canvas) {
     canvas.drawCircle(x, y, r, paint);
   }
@@ -35,7 +31,9 @@ class Ball extends GameObject {
     float elasticity = level.levelManager.gameSettings.getElasticity();
     vx += level.getAx();
     vy += level.getAy();
-    for (GameObject obj : level.gameObjects) {
+    for (int i = 0; i < level.gameObjects.size(); i++) {
+      GameObject obj = level.gameObjects.get(i);
+
       if (obj instanceof Wall) {
         Wall wall = (Wall) obj;
         if (wall.x_1 > 0) { // If the wall is horizontal
@@ -60,12 +58,13 @@ class Ball extends GameObject {
           }
         }
       }
+
       // If the ball meet a coin, coin disappear
       if (obj instanceof Coin) {
         Coin coin = (Coin) obj;
-        if (coin.x >= (x - getR()) && coin.x <= (x + getR())
-            && coin.y >= (y - getR()) && coin.y <= (y + getR())) {
-          level.gameObjects.remove(coin);
+        if (coin.x >= (x - r) && coin.x <= (x + r) && coin.y >= (y - r) && coin.y <= (y + r)) {
+          level.gameObjects.remove(i);
+          i--;
           level.addCoin();
         }
       }

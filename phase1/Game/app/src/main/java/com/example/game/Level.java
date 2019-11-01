@@ -31,7 +31,7 @@ abstract class Level {
   LevelManager levelManager;
   private int deathCount;
   private long startTime;
-  private int coinCoin;
+  private int coinCount;
 
   Level(int width, int height, final LevelManager levelManager) {
     this.width = width;
@@ -44,8 +44,8 @@ abstract class Level {
     sensorManager.registerListener(
         new SensorEventListener() {
           public void onSensorChanged(SensorEvent event) {
-            ax = 0.1f + 0.3f * levelManager.gameSettings.getSensitivity() * -event.values[0];
-            ay = 0.1f + 0.3f * levelManager.gameSettings.getSensitivity() * event.values[1];
+            ax = (0.1f + 0.2f * levelManager.gameSettings.getSensitivity()) * -event.values[0];
+            ay = (0.1f + 0.2f * levelManager.gameSettings.getSensitivity()) * event.values[1];
           }
 
           public void onAccuracyChanged(Sensor sensor, int accuracy) {
@@ -72,7 +72,7 @@ abstract class Level {
             Toast.makeText(levelManager.getContext(),
                 "Level passed!\nDeath count: " + deathCount +
                     "\nTime taken: " + time + "s" + "\nCoins Collected: "
-                    + coinCoin,
+                    + coinCount,
                 Toast.LENGTH_SHORT).show();
           }
         }
@@ -98,13 +98,13 @@ abstract class Level {
 
   void restart() {
     this.gameObjects.clear();
-    this.createGameObjects();
     this.deathCount++;
-    this.coinCoin = 0;
+    this.coinCount = 0;
+    this.createGameObjects();
   }
 
   void addCoin() {
-    this.coinCoin++;
+    this.coinCount++;
   }
 
   void update() {

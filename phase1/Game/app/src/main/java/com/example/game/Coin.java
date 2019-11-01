@@ -8,18 +8,17 @@ import android.graphics.Paint;
 class Coin extends GameObject {
 
   private Paint paint;
-  String text = "*";
 
 
   Coin(float x, float y) {
     super(x, y);
     paint = new Paint();
     paint.setColor(Color.YELLOW);
-    paint.setTextSize(100f);
+    paint.setTextSize(100);
   }
 
   void draw(Canvas canvas) {
-    canvas.drawText(text, x, y, paint);
+    canvas.drawCircle(x, y, 15, paint);
   }
 
   void update(Level level) {
