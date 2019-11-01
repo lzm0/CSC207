@@ -19,15 +19,14 @@ class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
   private LevelManager levelManager;
   private GameThread thread;
-  private GameSettings setting;
 
-  public GameView(Context context, GameSettings set, UserManager username) {
+  public GameView(Context context, GameSettings gameSettings, UserManager userManager) {
     super(context);
     getHolder().addCallback(this);
     this.thread = new GameThread(getHolder(), this);
     setFocusable(true);
-    setting = set;
-    this.levelManager = new LevelManager(width, height, context, username);
+
+    this.levelManager = new LevelManager(width, height, userManager, gameSettings, context);
   }
 
   public void update() {

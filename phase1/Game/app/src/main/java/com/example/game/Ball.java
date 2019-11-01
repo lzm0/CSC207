@@ -1,7 +1,5 @@
 package com.example.game;
 
-import static java.lang.Math.abs;
-
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -26,8 +24,11 @@ class Ball extends GameObject {
   }
 
   void update(Level level) {
+    // Set color
+    paint.setColor(level.levelManager.gameSettings.getColor());
+
     // Algorithm for resolving collision
-    float elasticity = 0.3f;
+    float elasticity = level.levelManager.gameSettings.getElasticity();
     vx += level.getAx();
     vy += level.getAy();
     for (GameObject obj : level.gameObjects) {

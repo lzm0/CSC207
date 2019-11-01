@@ -21,12 +21,12 @@ class GameSettings {
 
   void setColor(String colorName) {
     switch (colorName) {
-      case "White":
-        this.color = Color.WHITE;
       case "Red":
         this.color = Color.RED;
+        break;
       case "Blue":
         this.color = Color.BLUE;
+        break;
       default:
         this.color = Color.WHITE;
     }
@@ -37,7 +37,7 @@ class GameSettings {
   }
 
   float getSensitivity() {
-    return sensitivity;
+    return 0.1f + sensitivity;
   }
 
   int getColor() {

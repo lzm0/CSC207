@@ -28,11 +28,11 @@ abstract class Level {
 
   private float ax;
   private float ay;
-  private LevelManager levelManager;
+  LevelManager levelManager;
   private int deathCount;
   private long startTime;
 
-  Level(int width, int height, LevelManager levelManager) {
+  Level(int width, int height, final LevelManager levelManager) {
     this.width = width;
     this.height = height;
     this.gameObjects = new ArrayList<>();
@@ -43,8 +43,8 @@ abstract class Level {
     sensorManager.registerListener(
         new SensorEventListener() {
           public void onSensorChanged(SensorEvent event) {
-            ax = 0.2f * -event.values[0];
-            ay = 0.2f * event.values[1];
+            ax = 0.1f + 0.3f * levelManager.gameSettings.getSensitivity() * -event.values[0];
+            ay = 0.1f + 0.3f * levelManager.gameSettings.getSensitivity() * event.values[1];
           }
 
           public void onAccuracyChanged(Sensor sensor, int accuracy) {

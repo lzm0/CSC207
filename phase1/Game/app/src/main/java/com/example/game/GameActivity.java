@@ -35,7 +35,7 @@ public class GameActivity extends AppCompatActivity {
     gameSettings.setSensitivity(sensitivity);
     gameSettings.setColor(color);
 
-    UserManager user = new UserManager(username);
-    setContentView(new GameView(this, gameSettings, user));
+    UserManager userManager = new UserManager(username);
+    setContentView(new GameView(this, gameSettings, userManager));
   }
 }
