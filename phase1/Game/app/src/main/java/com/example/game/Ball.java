@@ -19,6 +19,10 @@ class Ball extends GameObject {
     paint.setColor(Color.WHITE);
   }
 
+  float getR() {
+    return r;
+  }
+
   void draw(Canvas canvas) {
     canvas.drawCircle(x, y, r, paint);
   }
@@ -56,8 +60,18 @@ class Ball extends GameObject {
           }
         }
       }
+      // If the ball meet a coin, coin disappear
+      if (obj instanceof Coin) {
+        Coin coin = (Coin) obj;
+        if (coin.x >= (x - getR()) && coin.x <= (x + getR())
+            && coin.y >= (y - getR()) && coin.y <= (y + getR())) {
+          level.gameObjects.remove(coin);
+          level.addCoin();
+        }
+      }
     }
     x += vx;
     y += vy;
   }
 }
+

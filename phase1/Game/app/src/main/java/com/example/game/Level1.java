@@ -10,7 +10,7 @@ class Level1 extends Level {
 
   void createGameObjects() {
     // Goal
-    gameObjects.add(new Goal(100, 1750, 40));
+    gameObjects.add(new Goal(100, getHeight() - 400, 40));
 
     // Left boundary
     gameObjects.add(new Wall(0, 0, 0, getHeight()));
@@ -27,17 +27,24 @@ class Level1 extends Level {
     gameObjects.add(new Wall(330, 1000, 750, 0));
 
     // Blackhole
-    gameObjects.add(new Blackhole(830, 500, 40));
-    gameObjects.add(new Blackhole(250, 1000, 40));
-    gameObjects.add(new Blackhole(830, 1500, 40));
-    gameObjects.add(new Blackhole(1000, 1900, 40));
-    gameObjects.add(new Blackhole(1300, 200, 40));
     gameObjects.add(new Blackhole(100, 80, 40));
+    gameObjects.add(new Blackhole(830, 500, 40));
     gameObjects.add(new Blackhole(80, 600, 40));
+    gameObjects.add(new Blackhole(250, 1000, 40));
     gameObjects.add(new Blackhole(80, 1400, 40));
-    gameObjects.add(new Blackhole(100, 1950, 40));
+    gameObjects.add(new Blackhole(830, 1500, 40));
+    gameObjects.add(new Blackhole(1000, getHeight() - 100, 40));
+    gameObjects.add(new Blackhole(100, getHeight() - 150, 40));
+
+    // Coin
+    gameObjects.add(new Coin(200, 100));
+    gameObjects.add(new Coin(getWidth() - 100, 100));
+    gameObjects.add(new Coin(700, 650));
+    gameObjects.add(new Coin(350, 1150));
+    gameObjects.add(new Coin(100, getHeight() - 230));
 
     // Ball (should be added last to prevent overlap)
     gameObjects.add(new Ball(500, 300, 30));
   }
 }
+

@@ -21,11 +21,14 @@ class GameSettings {
 
   void setColor(String colorName) {
     switch (colorName) {
-      case "Red":
-        this.color = Color.RED;
-        break;
       case "Blue":
         this.color = Color.BLUE;
+        break;
+      case "Magenta":
+        this.color = Color.MAGENTA;
+        break;
+      case "Cyan":
+        this.color = Color.CYAN;
         break;
       default:
         this.color = Color.WHITE;
