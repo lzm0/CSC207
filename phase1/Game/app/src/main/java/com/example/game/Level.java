@@ -43,8 +43,8 @@ abstract class Level {
     sensorManager.registerListener(
         new SensorEventListener() {
           public void onSensorChanged(SensorEvent event) {
-            ax = 0.1f + 0.3f * levelManager.gameSettings.getSensitivity() * -event.values[0];
-            ay = 0.1f + 0.3f * levelManager.gameSettings.getSensitivity() * event.values[1];
+            ax = (0.1f + 0.2f * levelManager.gameSettings.getSensitivity()) * -event.values[0];
+            ay = (0.1f + 0.2f * levelManager.gameSettings.getSensitivity()) * event.values[1];
           }
 
           public void onAccuracyChanged(Sensor sensor, int accuracy) {
