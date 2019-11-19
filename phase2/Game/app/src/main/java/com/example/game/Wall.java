@@ -20,7 +20,7 @@ class Wall extends GameObject {
   }
 
   void draw(Canvas canvas) {
-    canvas.drawLine(x, y, x + x_1, y + y_1, paint);
+    canvas.drawLine(getX(), getY(), getX() + x_1, getY() + y_1, paint);
   }
 
   void update(Level level) {

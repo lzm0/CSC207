@@ -21,7 +21,7 @@ class Goal extends GameObject {
   }
 
   void draw(Canvas canvas) {
-    canvas.drawCircle(x, y, r, paint);
+    canvas.drawCircle(getX(), getY(), r, paint);
   }
 
   void update(Level level) {
@@ -29,7 +29,7 @@ class Goal extends GameObject {
       if (level.gameObjects.get(i) instanceof Ball) {
         Ball ball = (Ball) level.gameObjects.get(i);
         // If center of the ball is inside the goal
-        if (pow(x - ball.x, 2) + pow(y - ball.y, 2) < pow(r, 2)) {
+        if (pow(getX() - ball.getX(), 2) + pow(getY() - ball.getY(), 2) < pow(r, 2)) {
           level.gameObjects.remove(i);
           i--;
           level.pass();

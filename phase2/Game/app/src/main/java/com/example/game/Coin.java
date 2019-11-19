@@ -18,7 +18,7 @@ class Coin extends GameObject {
   }
 
   void draw(Canvas canvas) {
-    canvas.drawCircle(x, y, 15, paint);
+    canvas.drawCircle(getX(), getY(), 15, paint);
   }
 
   void update(Level level) {

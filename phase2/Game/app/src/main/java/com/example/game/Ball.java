@@ -20,7 +20,7 @@ class Ball extends GameObject {
   }
 
   void draw(Canvas canvas) {
-    canvas.drawCircle(x, y, r, paint);
+    canvas.drawCircle(getX(), getY(), r, paint);
   }
 
   void update(Level level) {
@@ -37,22 +37,22 @@ class Ball extends GameObject {
       if (obj instanceof Wall) {
         Wall wall = (Wall) obj;
         if (wall.x_1 > 0) { // If the wall is horizontal
-          if (wall.x <= x && x <= wall.x + wall.x_1) {
-            if (y > wall.y && (y + vy) - wall.y < r) {
-              y = wall.y + r + 1;
+          if (wall.getX() <= getX() && getX() <= wall.getX() + wall.x_1) {
+            if (getY() > wall.getY() && (getY() + vy) - wall.getY() < r) {
+              setY(wall.getY() + r + 1);
               vy = -(elasticity * vy);
-            } else if (y < wall.y && wall.y - (y + vy) < r) {
-              y = wall.y - r - 1;
+            } else if (getY() < wall.getY() && wall.getY() - (getY() + vy) < r) {
+              setY(wall.getY() - r - 1);
               vy = -(elasticity * vy);
             }
           }
         } else { // If the wall is vertical
-          if (wall.y <= y && y <= wall.y + wall.y_1) {
-            if (x > wall.x && (x + vx) - wall.x < r) {
-              x = wall.x + r + 1;
+          if (wall.getY() <= getY() && getY() <= wall.getY() + wall.y_1) {
+            if (getX() > wall.getX() && (getX() + vx) - wall.getX() < r) {
+              setX(wall.getX() + r + 1);
               vx = -(elasticity * vx);
-            } else if (x < wall.x && wall.x - (x + vx) < r) {
-              x = wall.x - r - 1;
+            } else if (getX() < wall.getX() && wall.getX() - (getX() + vx) < r) {
+              setX(wall.getX() - r - 1);
               vx = -(elasticity * vx);
             }
           }
@@ -62,15 +62,16 @@ class Ball extends GameObject {
       // If the ball meet a coin, coin disappear
       if (obj instanceof Coin) {
         Coin coin = (Coin) obj;
-        if (coin.x >= (x - r) && coin.x <= (x + r) && coin.y >= (y - r) && coin.y <= (y + r)) {
+        if (coin.getX() >= (getX() - r) && coin.getX() <= (getX() + r) &&
+            coin.getY() >= (getY() - r) && coin.getY() <= (getY() + r)) {
           level.gameObjects.remove(i);
           i--;
           level.addCoin();
         }
       }
     }
-    x += vx;
-    y += vy;
+    setX(getX() + vx);
+    setY(getY() + vy);
   }
 }
 
