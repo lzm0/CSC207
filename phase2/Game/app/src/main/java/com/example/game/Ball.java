@@ -36,8 +36,8 @@ class Ball extends GameObject {
 
       if (obj instanceof Wall) {
         Wall wall = (Wall) obj;
-        if (wall.x_1 > 0) { // If the wall is horizontal
-          if (wall.getX() <= getX() && getX() <= wall.getX() + wall.x_1) {
+        if (wall.x1 > 0) { // If the wall is horizontal
+          if (wall.getX() <= getX() && getX() <= wall.getX() + wall.x1) {
             if (getY() > wall.getY() && (getY() + vy) - wall.getY() < r) {
               setY(wall.getY() + r + 1);
               vy = -(elasticity * vy);
@@ -47,7 +47,7 @@ class Ball extends GameObject {
             }
           }
         } else { // If the wall is vertical
-          if (wall.getY() <= getY() && getY() <= wall.getY() + wall.y_1) {
+          if (wall.getY() <= getY() && getY() <= wall.getY() + wall.y1) {
             if (getX() > wall.getX() && (getX() + vx) - wall.getX() < r) {
               setX(wall.getX() + r + 1);
               vx = -(elasticity * vx);
