@@ -9,12 +9,10 @@ import android.graphics.Paint;
 class Goal extends GameObject {
 
   private float r;
-  private Paint paint;
 
   Goal(int x, int y, int radius) {
     super(x, y);
     r = radius;
-    paint = new Paint();
     paint.setColor(Color.GREEN);
     paint.setStrokeWidth(5);
     paint.setStyle(Paint.Style.STROKE);

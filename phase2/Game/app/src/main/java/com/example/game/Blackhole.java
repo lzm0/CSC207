@@ -9,12 +9,10 @@ import static java.lang.Math.pow;
 class Blackhole extends GameObject {
 
   private float r;
-  private Paint paint;
 
   Blackhole(int x, int y, int radius) {
     super(x, y);
     r = radius;
-    paint = new Paint();
     paint.setColor(Color.RED);
     paint.setStrokeWidth(5);
     paint.setStyle(Paint.Style.STROKE);

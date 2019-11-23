@@ -10,12 +10,10 @@ class Ball extends GameObject {
   private float r;
   private float vx = 0;
   private float vy = 0;
-  private Paint paint;
 
   Ball(int x, int y, int radius) {
     super(x, y);
     r = radius;
-    paint = new Paint();
     paint.setColor(Color.WHITE);
   }
 
@@ -36,8 +34,8 @@ class Ball extends GameObject {
 
       if (obj instanceof Wall) {
         Wall wall = (Wall) obj;
-        if (wall.x1 > 0) { // If the wall is horizontal
-          if (wall.getX() <= getX() && getX() <= wall.getX() + wall.x1) {
+        if (wall.getX1() > 0) { // If the wall is horizontal
+          if (wall.getX() <= getX() && getX() <= wall.getX() + wall.getX1()) {
             if (getY() > wall.getY() && (getY() + vy) - wall.getY() < r) {
               setY(wall.getY() + r + 1);
               vy = -(elasticity * vy);
@@ -47,7 +45,7 @@ class Ball extends GameObject {
             }
           }
         } else { // If the wall is vertical
-          if (wall.getY() <= getY() && getY() <= wall.getY() + wall.y1) {
+          if (wall.getY() <= getY() && getY() <= wall.getY() + wall.getY1()) {
             if (getX() > wall.getX() && (getX() + vx) - wall.getX() < r) {
               setX(wall.getX() + r + 1);
               vx = -(elasticity * vx);

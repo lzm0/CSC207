@@ -1,30 +1,33 @@
 package com.example.game;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
 
 abstract class GameObject {
 
   private float x;
   private float y;
+  Paint paint;
 
   GameObject(float x, float y) {
     this.x = x;
     this.y = y;
+    paint = new Paint();
   }
 
-  public float getX() {
+  float getX() {
     return x;
   }
 
-  public void setX(float x) {
+  void setX(float x) {
     this.x = x;
   }
 
-  public float getY() {
+  float getY() {
     return y;
   }
 
-  public void setY(float y) {
+  void setY(float y) {
     this.y = y;
   }
 
