@@ -4,18 +4,18 @@ import android.graphics.Color;
 
 class GameSettings {
 
-  private float elasticity;
-  private float sensitivity;
+  private double elasticity;
+  private double sensitivity;
   private int color;
 
   GameSettings() {
   }
 
-  void setElasticity(float elasticity) {
+  void setElasticity(double elasticity) {
     this.elasticity = elasticity;
   }
 
-  void setSensitivity(float sensitivity) {
+  void setSensitivity(double sensitivity) {
     this.sensitivity = sensitivity;
   }
 
@@ -35,12 +35,12 @@ class GameSettings {
     }
   }
 
-  float getElasticity() {
+  double getElasticity() {
     return elasticity;
   }
 
-  float getSensitivity() {
-    return 0.1f + sensitivity;
+  double getSensitivity() {
+    return 0.1 + sensitivity;
   }
 
   int getColor() {

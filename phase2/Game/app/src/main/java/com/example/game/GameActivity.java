@@ -26,8 +26,8 @@ public class GameActivity extends AppCompatActivity {
 
     Intent intent = getIntent();
     String username = intent.getStringExtra("Username");
-    float elasticity = intent.getFloatExtra("Elasticity", 0.5f);
-    float sensitivity = intent.getFloatExtra("Sensitivity", 0.5f);
+    double elasticity = intent.getDoubleExtra("Elasticity", 0.5);
+    double sensitivity = intent.getDoubleExtra("Sensitivity", 0.5);
     String color = intent.getStringExtra("Color");
 
     GameSettings gameSettings = new GameSettings();

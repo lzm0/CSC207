@@ -5,29 +5,29 @@ import android.graphics.Paint;
 
 abstract class GameObject {
 
-  private float x;
-  private float y;
+  private double x;
+  private double y;
   Paint paint;
 
-  GameObject(float x, float y) {
+  GameObject(double x, double y) {
     this.x = x;
     this.y = y;
     paint = new Paint();
   }
 
-  float getX() {
+  double getX() {
     return x;
   }
 
-  void setX(float x) {
+  void setX(double x) {
     this.x = x;
   }
 
-  float getY() {
+  double getY() {
     return y;
   }
 
-  void setY(float y) {
+  void setY(double y) {
     this.y = y;
   }
 

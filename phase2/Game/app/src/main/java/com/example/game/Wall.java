@@ -5,8 +5,8 @@ import android.graphics.Color;
 
 class Wall extends GameObject {
 
-  private float x1;
-  private float y1;
+  private double x1;
+  private double y1;
 
   Wall(int x, int y, int x1, int y1) {
     super(x, y);
@@ -16,17 +16,18 @@ class Wall extends GameObject {
     paint.setStrokeWidth(10);
   }
 
-  float getX1() {
+  double getX1() {
     return x1;
   }
 
 
-  float getY1() {
+  double getY1() {
     return y1;
   }
 
   void draw(Canvas canvas) {
-    canvas.drawLine(getX(), getY(), getX() + getX1(), getY() + getY1(), paint);
+    canvas.drawLine((float) getX(), (float) getY(),
+        (float) (getX() + getX1()), (float) (getY() + getY1()), paint);
   }
 
   void update(Level level) {

@@ -8,7 +8,7 @@ import static java.lang.Math.pow;
 
 class Blackhole extends GameObject {
 
-  private float r;
+  private double r;
 
   Blackhole(int x, int y, int radius) {
     super(x, y);
@@ -19,7 +19,7 @@ class Blackhole extends GameObject {
   }
 
   void draw(Canvas canvas) {
-    canvas.drawCircle(getX(), getY(), r, paint);
+    canvas.drawCircle((float) getX(), (float) getY(), (float) r, paint);
   }
 
   void update(Level level) {

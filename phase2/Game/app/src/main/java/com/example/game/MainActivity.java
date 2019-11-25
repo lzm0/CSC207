@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
     SeekBar elasticitySeekBar = findViewById(R.id.elasticity_seekbar);
     SeekBar sensitivitySeekBar = findViewById(R.id.sensitivity_seekbar);
     Spinner colorSpinner = findViewById(R.id.color_spinner);
-    float elasticity = (float) elasticitySeekBar.getProgress() / elasticitySeekBar.getMax();
-    float sensitivity = (float) sensitivitySeekBar.getProgress() / sensitivitySeekBar.getMax();
+    double elasticity = (double) elasticitySeekBar.getProgress() / elasticitySeekBar.getMax();
+    double sensitivity = (double) sensitivitySeekBar.getProgress() / sensitivitySeekBar.getMax();
     String color = colorSpinner.getSelectedItem().toString();
 
     Intent intent = new Intent(this, GameActivity.class);

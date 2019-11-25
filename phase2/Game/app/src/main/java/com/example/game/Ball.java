@@ -7,9 +7,9 @@ import android.graphics.Paint;
 
 class Ball extends GameObject {
 
-  private float r;
-  private float vx = 0;
-  private float vy = 0;
+  private double r;
+  private double vx = 0;
+  private double vy = 0;
 
   Ball(int x, int y, int radius) {
     super(x, y);
@@ -18,7 +18,7 @@ class Ball extends GameObject {
   }
 
   void draw(Canvas canvas) {
-    canvas.drawCircle(getX(), getY(), r, paint);
+    canvas.drawCircle((float) getX(),(float) getY(), (float) r, paint);
   }
 
   void update(Level level) {
@@ -26,7 +26,7 @@ class Ball extends GameObject {
     paint.setColor(level.levelManager.gameSettings.getColor());
 
     // Algorithm for resolving collision
-    float elasticity = level.levelManager.gameSettings.getElasticity();
+    double elasticity = level.levelManager.gameSettings.getElasticity();
     vx += level.getAx();
     vy += level.getAy();
     for (int i = 0; i < level.gameObjects.size(); i++) {

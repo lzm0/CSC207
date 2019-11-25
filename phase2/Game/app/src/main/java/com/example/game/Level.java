@@ -26,8 +26,8 @@ abstract class Level {
    */
   private int height;
 
-  private float ax;
-  private float ay;
+  private double ax;
+  private double ay;
   LevelManager levelManager;
   private int deathCount;
   private long startTime;
@@ -44,8 +44,8 @@ abstract class Level {
     sensorManager.registerListener(
         new SensorEventListener() {
           public void onSensorChanged(SensorEvent event) {
-            ax = (0.1f + 0.2f * levelManager.gameSettings.getSensitivity()) * -event.values[0];
-            ay = (0.1f + 0.2f * levelManager.gameSettings.getSensitivity()) * event.values[1];
+            ax = (0.1 + 0.2 * levelManager.gameSettings.getSensitivity()) * -event.values[0];
+            ay = (0.1 + 0.2 * levelManager.gameSettings.getSensitivity()) * event.values[1];
           }
 
           public void onAccuracyChanged(Sensor sensor, int accuracy) {
@@ -80,11 +80,11 @@ abstract class Level {
     levelManager.finishLevel(levelManager.getContext());
   }
 
-  float getAx() {
+  double getAx() {
     return ax;
   }
 
-  float getAy() {
+  double getAy() {
     return ay;
   }
 
