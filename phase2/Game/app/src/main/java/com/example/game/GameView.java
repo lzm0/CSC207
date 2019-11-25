@@ -1,21 +1,14 @@
 package com.example.game;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+@SuppressLint("ViewConstructor")
 class GameView extends SurfaceView implements SurfaceHolder.Callback {
-
-  /**
-   * Screen width.
-   */
-  private int width = Resources.getSystem().getDisplayMetrics().widthPixels;
-  /**
-   * Screen height.
-   */
-  private int height = Resources.getSystem().getDisplayMetrics().heightPixels;
 
   private LevelManager levelManager;
   private GameThread thread;
@@ -26,6 +19,8 @@ class GameView extends SurfaceView implements SurfaceHolder.Callback {
     this.thread = new GameThread(getHolder(), this);
     setFocusable(true);
 
+    int height = Resources.getSystem().getDisplayMetrics().heightPixels;
+    int width = Resources.getSystem().getDisplayMetrics().widthPixels;
     this.levelManager = new LevelManager(width, height, userManager, gameSettings, context);
   }
 
@@ -35,7 +30,7 @@ class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
   @Override
   public void surfaceCreated(SurfaceHolder holder) {
-    thread.setRunning(true);
+    thread.setRunning();
     thread.start();
   }
 
