@@ -1,5 +1,7 @@
 package com.example.game;
 
+import static java.lang.Math.pow;
+
 import android.graphics.Canvas;
 import android.graphics.Color;
 
@@ -17,7 +19,7 @@ class Ball extends GameObject {
   }
 
   void draw(Canvas canvas) {
-    canvas.drawCircle((float) getX(),(float) getY(), (float) r, paint);
+    canvas.drawCircle((float) getX(), (float) getY(), (float) r, paint);
   }
 
   void update(Level level) {
@@ -64,6 +66,14 @@ class Ball extends GameObject {
           level.gameObjects.remove(i);
           i--;
           level.addCoin();
+        }
+      }
+
+      if (obj instanceof Blackhole) {
+        Blackhole blackhole = (Blackhole) obj;
+        if (pow(blackhole.getX() - getX(), 2) + pow(blackhole.getY() - getY(), 2)
+            < pow(blackhole.getR(), 2)) {
+          level.restart();
         }
       }
     }

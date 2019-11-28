@@ -18,19 +18,14 @@ class Blackhole extends GameObject {
     paint.setStyle(Paint.Style.STROKE);
   }
 
+  public double getR() {
+    return r;
+  }
+
   void draw(Canvas canvas) {
     canvas.drawCircle((float) getX(), (float) getY(), (float) r, paint);
   }
 
   void update(Level level) {
-    for (int i = 0; i < level.gameObjects.size(); i++) {
-      if (level.gameObjects.get(i) instanceof Ball) {
-        Ball ball = (Ball) level.gameObjects.get(i);
-        // If center of the ball is inside the blackhole.
-        if (pow(getX() - ball.getX(), 2) + pow(getY() - ball.getY(), 2) < pow(r, 2)) {
-          level.restart();
-        }
-      }
-    }
   }
 }
