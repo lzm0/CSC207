@@ -9,11 +9,11 @@ class Enemy extends GameObject {
   private double vx;
   private double vy;
 
-  Enemy(int x, int y, int radius, double vel_x, double vel_y) {
+  Enemy(int x, int y, double vX, double vY, int radius) {
     super(x, y);
     r = radius;
-    vx = vel_x;
-    vy = vel_y;
+    vx = vX;
+    vy = vY;
     paint.setColor(Color.GREEN);
   }
   public double getR() {

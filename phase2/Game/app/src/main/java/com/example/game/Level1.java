@@ -47,8 +47,8 @@ class Level1 extends Level {
     gameObjects.add(new Ball(500, 300, 30));
 
     // Enemy
-    gameObjects.add(new Enemy(getWidth() - 100, 500, 35,0,-15));
-    gameObjects.add(new Enemy(500, 1700, 35,0,-13));
+    gameObjects.add(new Enemy(getWidth() - 100, 500, 0, -15, 35));
+    gameObjects.add(new Enemy(500, 1700, 0, -13, 35));
   }
 }
 
