@@ -77,10 +77,10 @@ class Ball extends GameObject {
         }
       }
 
-      if (obj instanceof Enermy) {
-        Enermy enermy = (Enermy) obj;
-        if (pow(enermy.getX() - getX(), 2) + pow(enermy.getY() - getY(), 2)
-            < pow(enermy.getR(), 2)) {
+      if (obj instanceof Enemy) {
+        Enemy enemy = (Enemy) obj;
+        if (pow(enemy.getX() - getX(), 2) + pow(enemy.getY() - getY(), 2)
+            < pow(enemy.getR(), 2)) {
           level.restart();
         }
       }

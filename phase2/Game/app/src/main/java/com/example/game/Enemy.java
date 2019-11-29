@@ -3,13 +3,13 @@ package com.example.game;
 import android.graphics.Canvas;
 import android.graphics.Color;
 
-class Enermy extends GameObject {
+class Enemy extends GameObject {
 
   private double r;
   private double vx;
   private double vy;
 
-  Enermy(int x, int y, int radius, double vel_x, double vel_y) {
+  Enemy(int x, int y, int radius, double vel_x, double vel_y) {
     super(x, y);
     r = radius;
     vx = vel_x;
