@@ -45,6 +45,10 @@ class Level1 extends Level {
 
     // Ball (should be added last to prevent overlap)
     gameObjects.add(new Ball(500, 300, 30));
+
+    // Enermy
+    gameObjects.add(new Enermy(getWidth() - 100, 500, 35,0,-15));
+    gameObjects.add(new Enermy(500, 1700, 35,0,-13));
   }
 }
 

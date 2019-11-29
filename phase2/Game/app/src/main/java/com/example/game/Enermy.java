@@ -1,35 +1,33 @@
 package com.example.game;
 
-import static java.lang.Math.pow;
-
 import android.graphics.Canvas;
 import android.graphics.Color;
 
-
-class Ball extends GameObject {
+class Enermy extends GameObject {
 
   private double r;
-  private double vx = 0;
-  private double vy = 0;
+  private double vx;
+  private double vy;
 
-  Ball(int x, int y, int radius) {
+  Enermy(int x, int y, int radius, double vel_x, double vel_y) {
     super(x, y);
     r = radius;
-    paint.setColor(Color.WHITE);
+    vx = vel_x;
+    vy = vel_y;
+    paint.setColor(Color.GREEN);
+  }
+  public double getR() {
+    return r;
   }
 
   void draw(Canvas canvas) {
     canvas.drawCircle((float) getX(), (float) getY(), (float) r, paint);
   }
 
-  void update(Level level) {
-    // Set color
-    paint.setColor(level.levelManager.gameSettings.getColor());
+  void update(Level level){
 
-    // Algorithm for resolving collision
-    double elasticity = level.levelManager.gameSettings.getElasticity();
-    vx += level.getAx();
-    vy += level.getAy();
+    int elasticity = 1;
+
     for (int i = 0; i < level.gameObjects.size(); i++) {
       GameObject obj = level.gameObjects.get(i);
 
@@ -57,36 +55,8 @@ class Ball extends GameObject {
           }
         }
       }
-
-      // If the ball meet a coin, coin disappear
-      if (obj instanceof Coin) {
-        Coin coin = (Coin) obj;
-        if (coin.getX() >= (getX() - r) && coin.getX() <= (getX() + r) &&
-            coin.getY() >= (getY() - r) && coin.getY() <= (getY() + r)) {
-          level.gameObjects.remove(i);
-          i--;
-          level.addCoin();
-        }
-      }
-
-      if (obj instanceof Blackhole) {
-        Blackhole blackhole = (Blackhole) obj;
-        if (pow(blackhole.getX() - getX(), 2) + pow(blackhole.getY() - getY(), 2)
-            < pow(blackhole.getR(), 2)) {
-          level.restart();
-        }
-      }
-
-      if (obj instanceof Enermy) {
-        Enermy enermy = (Enermy) obj;
-        if (pow(enermy.getX() - getX(), 2) + pow(enermy.getY() - getY(), 2)
-            < pow(enermy.getR(), 2)) {
-          level.restart();
-        }
-      }
     }
     setX(getX() + vx);
     setY(getY() + vy);
   }
 }
-
