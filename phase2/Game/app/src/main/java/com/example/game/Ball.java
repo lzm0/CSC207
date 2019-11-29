@@ -88,6 +88,14 @@ class Ball extends GameObject {
           level.restart();
         }
       }
+
+      if (obj instanceof MagicEnemy) {
+        MagicEnemy magicEnemy = (MagicEnemy) obj;
+        if (pow(magicEnemy.getX() - getX(), 2) + pow(magicEnemy.getY() - getY(), 2)
+            < pow(magicEnemy.getIr() + getR(), 2)) {
+          level.restart();
+        }
+      }
     }
     setX(getX() + vx);
     setY(getY() + vy);

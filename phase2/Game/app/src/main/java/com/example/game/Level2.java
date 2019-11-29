@@ -10,7 +10,7 @@ class Level2 extends Level {
 
   void createGameObjects() {
     // Goal
-    gameObjects.add(new Goal(550, 5 * getHeight() / 7-80, 40));
+    gameObjects.add(new Goal(100, 3*getHeight()/4 + 100, 40));
 
     // Left boundary
     gameObjects.add(new Wall(0, 0, 0, getHeight()));
@@ -22,26 +22,33 @@ class Level2 extends Level {
     gameObjects.add(new Wall(0, getHeight(), getWidth(), 0));
 
     // Walls
-    gameObjects.add(new Wall(getWidth() / 5, 0, 0, 6 * getHeight() / 7));
-    gameObjects.add(new Wall(getWidth() / 5, 6 * getHeight() / 7, 3 * getWidth() / 5, 0));
-    gameObjects.add(new Wall(4 * getWidth() / 5, getHeight() / 7, 0, 5 * getHeight() / 7));
-    gameObjects.add(new Wall(2 * getWidth() / 5, getHeight() / 7, 2 * getWidth() / 5, 0));
-    gameObjects.add(new Wall(2 * getWidth() / 5, getHeight() / 7, 0, 4 * getHeight() / 7));
-    gameObjects.add(new Wall(2 * getWidth() / 5, 5 * getHeight() / 7, getWidth() / 5, 0));
-    gameObjects.add(new Wall(3 * getWidth() / 5, 2 * getHeight() / 7, 0, 3 * getHeight() / 7));
+    gameObjects.add(new Wall(0, getHeight()/4, 17*getWidth()/24, 0));
+    gameObjects.add(new Wall(0, 3*getHeight()/4, 17*getWidth()/24, 0));
+    gameObjects.add(new Wall(7*getWidth()/24, getHeight()/2, 17*getWidth()/24, 0));
 
-    // Blackholes
-    gameObjects.add(new Blackhole(100, getHeight()-100, 40));
-    gameObjects.add(new Blackhole(950, getHeight()-100, 40));
-    gameObjects.add(new Blackhole(950, 150, 40));
-    gameObjects.add(new Blackhole(350, 150, 40));
-    gameObjects.add(new Blackhole(350, 6 * getHeight() / 7-100, 40));
-    gameObjects.add(new Blackhole(750, 6 * getHeight() / 7-100, 40));
-    gameObjects.add(new Blackhole(750, 450, 40));
-    gameObjects.add(new Blackhole(550, 450, 40));
+    // Blackhole
+    gameObjects.add(new Blackhole(100, 80, 40));
+    gameObjects.add(new Blackhole(830, 500, 40));
+    gameObjects.add(new Blackhole(80, 600, 40));
+    gameObjects.add(new Blackhole(250, 1000, 40));
+    gameObjects.add(new Blackhole(80, 1400, 40));
+    gameObjects.add(new Blackhole(830, 1500, 40));
+    gameObjects.add(new Blackhole(1000, getHeight() - 100, 40));
+    gameObjects.add(new Blackhole(100, getHeight() - 150, 40));
+
+    // Coin
+    gameObjects.add(new Coin(200, 100));
+    gameObjects.add(new Coin(getWidth() - 100, 100));
+    gameObjects.add(new Coin(700, 650));
+    gameObjects.add(new Coin(350, 1150));
+    gameObjects.add(new Coin(100, getHeight() - 230));
 
     // Ball (should be added last to prevent overlap)
-    gameObjects.add(new Ball(50, 30, 30));
-  }
+    gameObjects.add(new Ball(500, 300, 30));
 
+    // Enemy
+    gameObjects.add(new Enemy(getWidth() - 100, 500, 0, -15, 35));
+    gameObjects.add(new Enemy(500, 1700, 0, -13, 35));
+  }
 }
+
