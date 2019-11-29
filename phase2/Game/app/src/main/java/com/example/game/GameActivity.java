@@ -36,6 +36,6 @@ public class GameActivity extends AppCompatActivity {
     gameSettings.setColor(color);
 
     UserManager userManager = new UserManager(username);
-    setContentView(new GameView(this, gameSettings, userManager));
+      setContentView(new GameView(this, gameSettings, userManager, this));
   }
 }

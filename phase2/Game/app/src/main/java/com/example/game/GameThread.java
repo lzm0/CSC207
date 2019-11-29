@@ -48,4 +48,8 @@ class GameThread extends Thread {
   void setRunning() {
     this.isRunning = true;
   }
+
+    void closeRunning() {
+        this.isRunning = false;
+    }
 }

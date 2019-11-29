@@ -13,7 +13,8 @@ class GameView extends SurfaceView implements SurfaceHolder.Callback {
   private LevelManager levelManager;
   private GameThread thread;
 
-  public GameView(Context context, GameSettings gameSettings, UserManager userManager) {
+  public GameView(Context context, GameSettings gameSettings,
+                  UserManager userManager, GameActivity game) {
     super(context);
     getHolder().addCallback(this);
     this.thread = new GameThread(getHolder(), this);
@@ -21,7 +22,8 @@ class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     int height = Resources.getSystem().getDisplayMetrics().heightPixels;
     int width = Resources.getSystem().getDisplayMetrics().widthPixels;
-    this.levelManager = new LevelManager(width, height, userManager, gameSettings, context);
+    this.levelManager = new LevelManager(width, height, userManager, gameSettings,
+            context, game, thread);
   }
 
   public void update() {
