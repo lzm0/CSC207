@@ -45,7 +45,49 @@ class Level3 extends Level {
     gameObjects.add(new Wall(getWidth()/3+425, 0, 0,200));//13
     gameObjects.add(new Wall(getWidth()/3+600, 90, 0,200));//14
 
+    // Coins
+    for (int i = 0; i < 300; i += 60){
+      gameObjects.add(new Coin(60 + i,getHeight()/14));
+    }
+    gameObjects.add(new Coin(200,getHeight()/7 + 150));//5 times
+    gameObjects.add(new Coin(200,getHeight()/7 + 150));
+    gameObjects.add(new Coin(200,getHeight()/7 + 150));
+    gameObjects.add(new Coin(200,getHeight()/7 + 150));
+    gameObjects.add(new Coin(200,getHeight()/7 + 150));
+    gameObjects.add(new Coin(140,2*getHeight()/7 + 150));
+    gameObjects.add(new Coin(250,3*getHeight()/7 + 150));
+    gameObjects.add(new Coin(210,4*getHeight()/7 + 150));
 
+    gameObjects.add(new Coin(2*getWidth()/3,22*getHeight()/25)); //?
+    gameObjects.add(new Coin(2*getWidth()/3-45,22*getHeight()/25+20));
+    gameObjects.add(new Coin(2*getWidth()/3-80,22*getHeight()/25+60));
+    gameObjects.add(new Coin(2*getWidth()/3+45,22*getHeight()/25+20));
+    gameObjects.add(new Coin(2*getWidth()/3+80,22*getHeight()/25+60));
+    gameObjects.add(new Coin(2*getWidth()/3+45,22*getHeight()/25+100));
+    gameObjects.add(new Coin(2*getWidth()/3+15,22*getHeight()/25+150));
+    gameObjects.add(new Coin(2*getWidth()/3,22*getHeight()/25+220));
+
+    for (int i = 0; i < 500; i += 100) {
+      gameObjects.add(new Coin(1 * getWidth() / 2 + i, 7.9 * getHeight() / 10));
+    }
+
+    gameObjects.add(new Coin(getWidth()/3+155, 3*getHeight()/7+130));
+    gameObjects.add(new Coin(getWidth()/3+260, 3*getHeight()/7 - 150));
+    gameObjects.add(new Coin(getWidth()-50, 4*getHeight()/7+130));
+
+    gameObjects.add(new Coin(getWidth()/3+260, 4*getHeight()/7));
+    gameObjects.add(new Coin(getWidth()/3+360, 4*getHeight()/7-100));
+    gameObjects.add(new Coin(getWidth()/3+460, 4*getHeight()/7-200));
+
+    gameObjects.add(new Coin(getWidth()/3+690, 2*getHeight()/7-220));
+    gameObjects.add(new Coin(getWidth()/3+550, 170));
+
+    gameObjects.add(new Coin(getWidth()/3+420, getHeight()/7+40));
+    gameObjects.add(new Coin(getWidth()/3+520, getHeight()/7+110));
+    gameObjects.add(new Coin(getWidth()/3+560, getHeight()/7+200));
+    gameObjects.add(new Coin(getWidth()/3+380, 2*getHeight()/7-30));
+    gameObjects.add(new Coin(getWidth()/3+420, 2*getHeight()/7+60));
+    gameObjects.add(new Coin(getWidth()/3+300, 2*getHeight()/7-80));
 
     // Blackholes
     gameObjects.add(new Blackhole(getWidth()/3,130+4*getHeight()/5,40));
@@ -87,6 +129,7 @@ class Level3 extends Level {
 
     //MagicEnemy
     gameObjects.add(new MagicEnemy(getWidth()/3+420,getHeight()/7+160,50,120));
+    gameObjects.add(new MagicEnemy(getWidth()/7, 8 * getHeight()/9, 99, 100));
 
   }
 }

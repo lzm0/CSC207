@@ -30,6 +30,15 @@ class Level1 extends Level {
     gameObjects.add(new Wall(2 * getWidth() / 5, 5 * getHeight() / 7, getWidth() / 5, 0));
     gameObjects.add(new Wall(3 * getWidth() / 5, 2 * getHeight() / 7, 0, 3 * getHeight() / 7));
 
+    //Coins
+    gameObjects.add(new Coin(200,getHeight()-200));
+    gameObjects.add(new Coin(850,getHeight()-200));
+    gameObjects.add(new Coin(880,250));
+    gameObjects.add(new Coin(420,250));
+    gameObjects.add(new Coin(420,6 * getHeight() / 7-200));
+    gameObjects.add(new Coin(720,6 * getHeight() / 7-200));
+    gameObjects.add(new Coin(3 * getWidth() / 5,2 * getHeight() / 7-80));
+
     // Blackholes
     gameObjects.add(new Blackhole(100, getHeight()-100, 40));
     gameObjects.add(new Blackhole(950, getHeight()-100, 40));
