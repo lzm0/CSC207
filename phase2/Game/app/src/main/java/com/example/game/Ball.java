@@ -73,8 +73,8 @@ class Ball extends GameObject {
         }
       }
 
-      if (obj instanceof Blackhole) {
-        Blackhole blackhole = (Blackhole) obj;
+      if (obj instanceof BlackHole) {
+        BlackHole blackhole = (BlackHole) obj;
         if (pow(blackhole.getX() - getX(), 2) + pow(blackhole.getY() - getY(), 2)
             < pow(blackhole.getR(), 2)) {
           level.restart();

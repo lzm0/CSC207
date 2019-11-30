@@ -6,11 +6,11 @@ import android.graphics.Paint;
 
 import static java.lang.Math.pow;
 
-class Blackhole extends GameObject {
+class BlackHole extends GameObject {
 
   private double r;
 
-  Blackhole(int x, int y, int radius) {
+  BlackHole(int x, int y, int radius) {
     super(x, y);
     r = radius;
     paint.setColor(Color.RED);

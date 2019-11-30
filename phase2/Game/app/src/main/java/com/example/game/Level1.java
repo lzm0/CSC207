@@ -40,14 +40,14 @@ class Level1 extends Level {
     gameObjects.add(new Coin(3 * getWidth() / 5,2 * getHeight() / 7-80));
 
     // Blackholes
-    gameObjects.add(new Blackhole(100, getHeight()-100, 40));
-    gameObjects.add(new Blackhole(950, getHeight()-100, 40));
-    gameObjects.add(new Blackhole(950, 150, 40));
-    gameObjects.add(new Blackhole(350, 150, 40));
-    gameObjects.add(new Blackhole(350, 6 * getHeight() / 7-100, 40));
-    gameObjects.add(new Blackhole(750, 6 * getHeight() / 7-100, 40));
-    gameObjects.add(new Blackhole(750, 450, 40));
-    gameObjects.add(new Blackhole(550, 450, 40));
+    gameObjects.add(new BlackHole(100, getHeight()-100, 40));
+    gameObjects.add(new BlackHole(950, getHeight()-100, 40));
+    gameObjects.add(new BlackHole(950, 150, 40));
+    gameObjects.add(new BlackHole(350, 150, 40));
+    gameObjects.add(new BlackHole(350, 6 * getHeight() / 7-100, 40));
+    gameObjects.add(new BlackHole(750, 6 * getHeight() / 7-100, 40));
+    gameObjects.add(new BlackHole(750, 450, 40));
+    gameObjects.add(new BlackHole(550, 450, 40));
 
     // Ball (should be added last to prevent overlap)
     gameObjects.add(new Ball(50, 30, 30));

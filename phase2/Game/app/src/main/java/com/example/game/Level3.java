@@ -90,30 +90,30 @@ class Level3 extends Level {
     gameObjects.add(new Coin(getWidth()/3+300, 2*getHeight()/7-80));
 
     // Blackholes
-    gameObjects.add(new Blackhole(getWidth()/3,130+4*getHeight()/5,40));
+    gameObjects.add(new BlackHole(getWidth()/3,130+4*getHeight()/5,40));
 
     for (int i = 0; i < getWidth(); i += 100) {
-      gameObjects.add(new Blackhole(getWidth() / 3 + 170 + i, 80 + 4 * getHeight() / 5, 50));
+      gameObjects.add(new BlackHole(getWidth() / 3 + 170 + i, 80 + 4 * getHeight() / 5, 50));
     }
     for (int i = 0; i < getWidth()-550; i += 100) {
-      gameObjects.add(new Blackhole(getWidth()/3+50+i,5*getHeight()/7+50,50));
+      gameObjects.add(new BlackHole(getWidth()/3+50+i,5*getHeight()/7+50,50));
     }
 
-    gameObjects.add(new Blackhole(getWidth()/3+155,3*getHeight()/7+50,40));
-    gameObjects.add(new Blackhole(getWidth()/3+50,4*getHeight()/7,40));
+    gameObjects.add(new BlackHole(getWidth()/3+155,3*getHeight()/7+50,40));
+    gameObjects.add(new BlackHole(getWidth()/3+50,4*getHeight()/7,40));
 
-    gameObjects.add(new Blackhole(getWidth()-50,4*getHeight()/7+50,40));
+    gameObjects.add(new BlackHole(getWidth()-50,4*getHeight()/7+50,40));
 
-    gameObjects.add(new Blackhole(getWidth()/3+50,2*getHeight()/7+50,40));
+    gameObjects.add(new BlackHole(getWidth()/3+50,2*getHeight()/7+50,40));
 
-    gameObjects.add(new Blackhole(getWidth()/3+450,3*getHeight()/7+240,40));
-    gameObjects.add(new Blackhole(getWidth()/3+550,3*getHeight()/7+240,40));
+    gameObjects.add(new BlackHole(getWidth()/3+450,3*getHeight()/7+240,40));
+    gameObjects.add(new BlackHole(getWidth()/3+550,3*getHeight()/7+240,40));
 
-    gameObjects.add(new Blackhole(getWidth()/3+600,2*getHeight()/7-220,60));
+    gameObjects.add(new BlackHole(getWidth()/3+600,2*getHeight()/7-220,60));
 
-    gameObjects.add(new Blackhole(getWidth()/3+475,50,40));
-    gameObjects.add(new Blackhole(getWidth()/3+550,240,40));
-    gameObjects.add(new Blackhole(getWidth()/3+375,50,40));
+    gameObjects.add(new BlackHole(getWidth()/3+475,50,40));
+    gameObjects.add(new BlackHole(getWidth()/3+550,240,40));
+    gameObjects.add(new BlackHole(getWidth()/3+375,50,40));
 
     // Ball (should be added last to prevent overlap)
     gameObjects.add(new Ball(getWidth()-100, getHeight()-100, 30));
