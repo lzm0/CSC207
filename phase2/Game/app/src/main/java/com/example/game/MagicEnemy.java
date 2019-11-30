@@ -4,10 +4,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 
 
-public class MagicEnemy extends GameObject {
+class MagicEnemy extends GameObject {
+
   private double ir;
   private double fr;
-  boolean goBeyond = false;
+  private boolean goBeyond = false;
 
 
   MagicEnemy(int x, int y, int iniR, int finR) {
@@ -17,9 +18,12 @@ public class MagicEnemy extends GameObject {
     paint.setColor(Color.BLUE);
   }
 
-  public double getIr() { return ir;
+  double getIr() {
+    return ir;
   }
-  public double getFr() { return fr;
+
+  double getFr() {
+    return fr;
 
   }
 
@@ -33,15 +37,15 @@ public class MagicEnemy extends GameObject {
 
   void update(Level level) {
 
-    if(!goBeyond & getIr() < getFr()){
+    if (!goBeyond & getIr() < getFr()) {
       setR(getIr() + 1);
-      if (getIr() >= getFr()){
+      if (getIr() >= getFr()) {
         goBeyond = true;
       }
     }
-    if(goBeyond & getIr() > 40){
+    if (goBeyond & getIr() > 40) {
       setR(getIr() - 0.5);
-      if(getIr() <= 40){
+      if (getIr() <= 40) {
         goBeyond = false;
       }
     }
