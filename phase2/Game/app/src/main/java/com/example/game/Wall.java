@@ -8,6 +8,14 @@ class Wall extends GameObject {
   private double x1;
   private double y1;
 
+  /**
+   * Class constructor that extends GameObject.
+   *
+   * @param x   the x-coordinate of this Wall
+   * @param y   the y-coordinate of this Wall
+   * @param x1   the width of this Wall
+   * @param y1   the length of this Wall
+   */
   Wall(int x, int y, int x1, int y1) {
     super(x, y);
     this.y1 = y1;

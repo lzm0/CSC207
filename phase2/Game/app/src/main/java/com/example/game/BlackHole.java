@@ -10,6 +10,13 @@ class BlackHole extends GameObject {
 
   private double r;
 
+  /**
+   * Class constructor that extends GameObject.
+   *
+   * @param x   the x-coordinate of this BlackHole
+   * @param y   the y-coordinate of this BlackHole
+   * @param radius   the radius of this BlackHole
+   */
   BlackHole(int x, int y, int radius) {
     super(x, y);
     r = radius;
