@@ -1,12 +1,11 @@
 package com.example.game;
 
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -36,6 +35,6 @@ public class GameActivity extends AppCompatActivity {
     gameSettings.setColor(color);
 
     UserManager userManager = new UserManager(username);
-      setContentView(new GameView(this, gameSettings, userManager, this));
+    setContentView(new GameView(this, gameSettings, userManager, this));
   }
 }

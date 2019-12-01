@@ -2,20 +2,19 @@ package com.example.game;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Build.VERSION_CODES;
+import android.os.Bundle;
 import android.text.InputType;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -68,14 +67,16 @@ public class MainActivity extends AppCompatActivity {
     input.setInputType(InputType.TYPE_CLASS_TEXT);
     input.setText("Username");
     builder.setView(input);
-    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-      @Override
-      public void onClick(DialogInterface dialog, int which) {
-        // Set username and enable play button
-        username = input.getText().toString();
-        findViewById(R.id.play_button).setEnabled(true);
-      }
-    });
+    builder.setPositiveButton(
+        "OK",
+        new DialogInterface.OnClickListener() {
+          @Override
+          public void onClick(DialogInterface dialog, int which) {
+            // Set username and enable play button
+            username = input.getText().toString();
+            findViewById(R.id.play_button).setEnabled(true);
+          }
+        });
     builder.show();
   }
 }

@@ -11,10 +11,10 @@ class Wall extends GameObject {
   /**
    * Class constructor that extends GameObject.
    *
-   * @param x   the x-coordinate of this Wall
-   * @param y   the y-coordinate of this Wall
-   * @param x1   the width of this Wall
-   * @param y1   the length of this Wall
+   * @param x the x-coordinate of this Wall
+   * @param y the y-coordinate of this Wall
+   * @param x1 the width of this Wall
+   * @param y1 the length of this Wall
    */
   Wall(int x, int y, int x1, int y1) {
     super(x, y);
@@ -28,16 +28,18 @@ class Wall extends GameObject {
     return x1;
   }
 
-
   double getY1() {
     return y1;
   }
 
   void draw(Canvas canvas) {
-    canvas.drawLine((float) getX(), (float) getY(),
-        (float) (getX() + getX1()), (float) (getY() + getY1()), paint);
+    canvas.drawLine(
+        (float) getX(),
+        (float) getY(),
+        (float) (getX() + getX1()),
+        (float) (getY() + getY1()),
+        paint);
   }
 
-  void update(Level level) {
-  }
+  void update(Level level) {}
 }

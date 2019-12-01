@@ -12,11 +12,11 @@ class Enemy extends GameObject {
   /**
    * Class constructor that extends GameObject.
    *
-   * @param x   the x-coordinate of this Enemy
-   * @param y   the y-coordinate of this Enemy
-   * @param vX   the original horizontal velocity of this Enemy
-   * @param vY   the original vertical velocity of this Enemy
-   * @param radius   the radius of this Enemy
+   * @param x the x-coordinate of this Enemy
+   * @param y the y-coordinate of this Enemy
+   * @param vX the original horizontal velocity of this Enemy
+   * @param vY the original vertical velocity of this Enemy
+   * @param radius the radius of this Enemy
    */
   Enemy(int x, int y, double vX, double vY, int radius) {
     super(x, y);
@@ -25,6 +25,7 @@ class Enemy extends GameObject {
     vy = vY;
     paint.setColor(Color.GREEN);
   }
+
   public double getR() {
     return r;
   }
@@ -36,9 +37,9 @@ class Enemy extends GameObject {
   /**
    * Changes the Enemy's moving direction when hitting the wall.
    *
-   * @param level   the level of this enemy in.
+   * @param level the level of this enemy in.
    */
-  void update(Level level){
+  void update(Level level) {
 
     int elasticity = 1;
 

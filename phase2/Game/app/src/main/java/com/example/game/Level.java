@@ -9,7 +9,6 @@ import android.hardware.SensorManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,13 +16,9 @@ abstract class Level {
 
   List<GameObject> gameObjects;
 
-  /**
-   * The number of pixels of the screen width
-   */
+  /** The number of pixels of the screen width */
   private int width;
-  /**
-   * The number of pixels of the screen height
-   */
+  /** The number of pixels of the screen height */
   private int height;
 
   private double ax;
@@ -48,8 +43,7 @@ abstract class Level {
             ay = (0.1 + 0.2 * levelManager.gameSettings.getSensitivity()) * event.values[1];
           }
 
-          public void onAccuracyChanged(Sensor sensor, int accuracy) {
-          }
+          public void onAccuracyChanged(Sensor sensor, int accuracy) {}
         },
         sensor,
         SensorManager.SENSOR_DELAY_GAME);
@@ -69,14 +63,19 @@ abstract class Level {
         new Runnable() {
           @Override
           public void run() {
-            Toast.makeText(levelManager.getContext(),
-                "Level passed!\nDeath count: " + deathCount +
-                    "\nTime taken: " + time + "s" + "\nCoins Collected: "
-                    + coinCount,
-                Toast.LENGTH_SHORT).show();
+            Toast.makeText(
+                    levelManager.getContext(),
+                    "Level passed!\nDeath count: "
+                        + deathCount
+                        + "\nTime taken: "
+                        + time
+                        + "s"
+                        + "\nCoins Collected: "
+                        + coinCount,
+                    Toast.LENGTH_SHORT)
+                .show();
           }
-        }
-    );
+        });
     levelManager.finishLevel(levelManager.getContext());
   }
 

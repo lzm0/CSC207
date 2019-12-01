@@ -1,6 +1,6 @@
 package com.example.game;
 
-//import android.content.Context;
+// import android.content.Context;
 
 class Level2 extends Level {
 
@@ -10,7 +10,7 @@ class Level2 extends Level {
 
   void createGameObjects() {
     // Goal
-    gameObjects.add(new Goal(100, 3*getHeight()/4 + 100, 40));
+    gameObjects.add(new Goal(100, 3 * getHeight() / 4 + 100, 40));
 
     // Left boundary
     gameObjects.add(new Wall(0, 0, 0, getHeight()));
@@ -22,9 +22,9 @@ class Level2 extends Level {
     gameObjects.add(new Wall(0, getHeight(), getWidth(), 0));
 
     // Walls
-    gameObjects.add(new Wall(0, getHeight()/4, 17*getWidth()/24, 0));
-    gameObjects.add(new Wall(0, 3*getHeight()/4, 17*getWidth()/24, 0));
-    gameObjects.add(new Wall(7*getWidth()/24, getHeight()/2, 17*getWidth()/24, 0));
+    gameObjects.add(new Wall(0, getHeight() / 4, 17 * getWidth() / 24, 0));
+    gameObjects.add(new Wall(0, 3 * getHeight() / 4, 17 * getWidth() / 24, 0));
+    gameObjects.add(new Wall(7 * getWidth() / 24, getHeight() / 2, 17 * getWidth() / 24, 0));
 
     // BlackHole
     gameObjects.add(new BlackHole(100, 80, 40));
@@ -51,4 +51,3 @@ class Level2 extends Level {
     gameObjects.add(new Enemy(500, 1700, 0, -13, 35));
   }
 }
-

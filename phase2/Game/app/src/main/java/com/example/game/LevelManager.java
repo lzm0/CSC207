@@ -13,11 +13,17 @@ class LevelManager {
   private Context context;
   private UserManager userManager;
   GameSettings gameSettings;
-    private GameActivity game;
-    private GameThread thread;
+  private GameActivity game;
+  private GameThread thread;
 
-  LevelManager(int width, int height, UserManager userManager, GameSettings gameSettings,
-               Context context, GameActivity game, GameThread thread) {
+  LevelManager(
+      int width,
+      int height,
+      UserManager userManager,
+      GameSettings gameSettings,
+      Context context,
+      GameActivity game,
+      GameThread thread) {
     this.context = context;
     this.levels = new ArrayList<>();
     levels.add(new Level1(width, height, this));
@@ -26,25 +32,24 @@ class LevelManager {
 
     this.userManager = userManager;
     this.gameSettings = gameSettings;
-      this.game = game;
-      this.thread = thread;
+    this.game = game;
+    this.thread = thread;
 
     currentLevel = userManager.getUserInfo(context);
     levels.get(currentLevel - 1).start();
   }
 
   void finishLevel(Context context) {
-      if (currentLevel < levels.size()) {
-          currentLevel++;
-          levels.get(currentLevel - 1).start();
-          userManager.setUserInfo(context, currentLevel);
-      } else {
-          userManager.setUserInfo(context, 1);
-          this.thread.closeRunning();
-          Intent intent = new Intent(context, MainActivity.class);
-          game.startActivity(intent);
-
-      }
+    if (currentLevel < levels.size()) {
+      currentLevel++;
+      levels.get(currentLevel - 1).start();
+      userManager.setUserInfo(context, currentLevel);
+    } else {
+      userManager.setUserInfo(context, 1);
+      this.thread.closeRunning();
+      Intent intent = new Intent(context, MainActivity.class);
+      game.startActivity(intent);
+    }
   }
 
   Context getContext() {

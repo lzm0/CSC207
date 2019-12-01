@@ -5,7 +5,6 @@ import static java.lang.Math.pow;
 import android.graphics.Canvas;
 import android.graphics.Color;
 
-
 class Ball extends GameObject {
 
   private double r;
@@ -15,9 +14,9 @@ class Ball extends GameObject {
   /**
    * Class constructor that extends GameObject.
    *
-   * @param x   the x-coordinate of this Ball
-   * @param y   the y-coordinate of this Ball
-   * @param radius   the radius of this Ball
+   * @param x the x-coordinate of this Ball
+   * @param y the y-coordinate of this Ball
+   * @param radius the radius of this Ball
    */
   Ball(int x, int y, int radius) {
     super(x, y);
@@ -28,7 +27,7 @@ class Ball extends GameObject {
   /**
    * Gets the radius of this Ball.
    *
-   * @return   the radius r of this Ball
+   * @return the radius r of this Ball
    */
   public double getR() {
     return r;
@@ -39,10 +38,10 @@ class Ball extends GameObject {
   }
 
   /**
-   * Changes the x-coordinate and y-coordinate of this Ball in different ways
-   * when facing different situations.
+   * Changes the x-coordinate and y-coordinate of this Ball in different ways when facing different
+   * situations.
    *
-   * @param level   the level of this ball in.
+   * @param level the level of this ball in.
    */
   void update(Level level) {
     // Set color
@@ -83,8 +82,7 @@ class Ball extends GameObject {
       // If the ball meet a coin, coin disappear
       if (obj instanceof Coin) {
         Coin coin = (Coin) obj;
-        if (pow(coin.getX() - getX(), 2) + pow(coin.getY() - getY(), 2)
-            < pow(15 + getR(), 2)) {
+        if (pow(coin.getX() - getX(), 2) + pow(coin.getY() - getY(), 2) < pow(15 + getR(), 2)) {
           level.gameObjects.remove(i);
           i--;
           level.addCoin();
@@ -121,4 +119,3 @@ class Ball extends GameObject {
     setY(getY() + vy);
   }
 }
-

@@ -19,7 +19,7 @@ class Goal extends GameObject {
   }
 
   void draw(Canvas canvas) {
-    canvas.drawCircle((float) getX(),(float) getY(), (float) r, paint);
+    canvas.drawCircle((float) getX(), (float) getY(), (float) r, paint);
   }
 
   void update(Level level) {

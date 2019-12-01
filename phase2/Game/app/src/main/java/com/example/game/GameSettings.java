@@ -8,8 +8,7 @@ class GameSettings {
   private double sensitivity;
   private int color;
 
-  GameSettings() {
-  }
+  GameSettings() {}
 
   void setElasticity(double elasticity) {
     this.elasticity = elasticity;

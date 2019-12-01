@@ -6,7 +6,7 @@ import android.view.SurfaceHolder;
 class GameThread extends Thread {
 
   private GameView gameView;
-  final private SurfaceHolder surfaceHolder;
+  private final SurfaceHolder surfaceHolder;
   private boolean isRunning;
 
   GameThread(SurfaceHolder surfaceHolder, GameView view) {
@@ -49,7 +49,7 @@ class GameThread extends Thread {
     this.isRunning = true;
   }
 
-    void closeRunning() {
-        this.isRunning = false;
-    }
+  void closeRunning() {
+    this.isRunning = false;
+  }
 }

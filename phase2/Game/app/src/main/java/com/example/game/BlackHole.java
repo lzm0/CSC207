@@ -4,8 +4,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-import static java.lang.Math.pow;
-
 class BlackHole extends GameObject {
 
   private double r;
@@ -13,9 +11,9 @@ class BlackHole extends GameObject {
   /**
    * Class constructor that extends GameObject.
    *
-   * @param x   the x-coordinate of this BlackHole
-   * @param y   the y-coordinate of this BlackHole
-   * @param radius   the radius of this BlackHole
+   * @param x the x-coordinate of this BlackHole
+   * @param y the y-coordinate of this BlackHole
+   * @param radius the radius of this BlackHole
    */
   BlackHole(int x, int y, int radius) {
     super(x, y);
@@ -33,6 +31,5 @@ class BlackHole extends GameObject {
     canvas.drawCircle((float) getX(), (float) getY(), (float) r, paint);
   }
 
-  void update(Level level) {
-  }
+  void update(Level level) {}
 }
