@@ -12,12 +12,24 @@ class Ball extends GameObject {
   private double vx = 0;
   private double vy = 0;
 
+  /**
+   * Class constructor that extends GameObject.
+   *
+   * @param x   the x-coordinate of this Ball
+   * @param y   the y-coordinate of this Ball
+   * @param radius   the radius of this Ball
+   */
   Ball(int x, int y, int radius) {
     super(x, y);
     r = radius;
     paint.setColor(Color.WHITE);
   }
 
+  /**
+   * Gets the radius of this Ball.
+   *
+   * @return   the radius r of this Ball
+   */
   public double getR() {
     return r;
   }
@@ -26,6 +38,12 @@ class Ball extends GameObject {
     canvas.drawCircle((float) getX(), (float) getY(), (float) r, paint);
   }
 
+  /**
+   * Changes the x-coordinate and y-coordinate of this Ball in different ways
+   * when facing different situations.
+   *
+   * @param level   the level of this ball in.
+   */
   void update(Level level) {
     // Set color
     paint.setColor(level.levelManager.gameSettings.getColor());
@@ -73,6 +91,7 @@ class Ball extends GameObject {
         }
       }
 
+      // If the ball meet a black hole, game restart.
       if (obj instanceof BlackHole) {
         BlackHole blackhole = (BlackHole) obj;
         if (pow(blackhole.getX() - getX(), 2) + pow(blackhole.getY() - getY(), 2)
@@ -81,6 +100,7 @@ class Ball extends GameObject {
         }
       }
 
+      // If the ball meet an enemy, game restart.
       if (obj instanceof Enemy) {
         Enemy enemy = (Enemy) obj;
         if (pow(enemy.getX() - getX(), 2) + pow(enemy.getY() - getY(), 2)

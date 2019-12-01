@@ -5,6 +5,12 @@ import android.graphics.Color;
 
 class Coin extends GameObject {
 
+  /**
+   * Class constructor that extends GameObject.
+   *
+   * @param x   the x-coordinate of this Coin
+   * @param y   the y-coordinate of this Coin
+   */
   Coin(double x, double y) {
     super(x, y);
     paint.setColor(Color.YELLOW);
