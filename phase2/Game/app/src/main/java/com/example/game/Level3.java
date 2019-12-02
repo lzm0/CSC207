@@ -68,7 +68,7 @@ class Level3 extends Level {
     gameObjects.add(new Coin(2 * getWidth() / 3, 22 * getHeight() / 25 + 220));
 
     for (int i = 0; i < 500; i += 100) {
-      gameObjects.add(new Coin(1 * getWidth() / 2 + i, 7.9 * getHeight() / 10));
+      gameObjects.add(new Coin(getWidth() / 2 + i, 7.9 * getHeight() / 10));
     }
 
     gameObjects.add(new Coin(getWidth() / 3 + 155, 3 * getHeight() / 7 + 130));
@@ -115,9 +115,6 @@ class Level3 extends Level {
     gameObjects.add(new BlackHole(getWidth() / 3 + 550, 240, 40));
     gameObjects.add(new BlackHole(getWidth() / 3 + 375, 50, 40));
 
-    // Ball (should be added last to prevent overlap)
-    gameObjects.add(new Ball(getWidth() - 100, getHeight() - 100, 30));
-
     // Enemy
     gameObjects.add(new Enemy(0, getHeight() / 7, 10, 0, 35));
     gameObjects.add(new Enemy(20, 2 * getHeight() / 7, -9, 0, 35));
@@ -130,5 +127,8 @@ class Level3 extends Level {
     // MagicEnemy
     gameObjects.add(new MagicEnemy(getWidth() / 3 + 420, getHeight() / 7 + 160, 50, 120));
     gameObjects.add(new MagicEnemy(getWidth() / 7, 8 * getHeight() / 9, 99, 100));
+
+    // Ball (should be added last to prevent overlap)
+    gameObjects.add(new Ball(getWidth() - 100, getHeight() - 100, 30));
   }
 }

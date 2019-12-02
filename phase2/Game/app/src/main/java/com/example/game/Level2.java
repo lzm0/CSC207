@@ -43,11 +43,11 @@ class Level2 extends Level {
     gameObjects.add(new Coin(350, 1150));
     gameObjects.add(new Coin(100, getHeight() - 230));
 
-    // Ball (should be added last to prevent overlap)
-    gameObjects.add(new Ball(500, 300, 30));
-
     // Enemy
     gameObjects.add(new Enemy(getWidth() - 100, 500, 0, -15, 35));
     gameObjects.add(new Enemy(500, 1700, 0, -13, 35));
+
+    // Ball (should be added last to prevent overlap)
+    gameObjects.add(new Ball(500, 300, 30));
   }
 }
